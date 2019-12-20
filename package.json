@@ -1,0 +1,26 @@
+{
+  "name": "mobileandweb",
+  "version": "1.0.0",
+  "description": "A mobile and web Project (Build a  ticket tracking system)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon"
+  },
+  "keywords": [
+    "node",
+    "restful"
+  ],
+  "author": "Ameer",
+  "license": "ISC",
+  "dependencies": {
+    "body-parse": "^0.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.14",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1"
+  }
+}
