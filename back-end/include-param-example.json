@@ -1,0 +1,28 @@
+{
+    "include":[
+        {
+            "relation": "ads"
+        },
+        {
+            "relation": "ads"
+        }
+    ],
+    "where": {
+        "approved": true,
+        "categoryId": 1,
+        "or": [
+            {
+                "item_name": {
+                    "like": "%test%"
+                }
+            },
+            {
+                "item_description": {
+                    "like": "%test%"
+                }
+            }
+        ]
+    },
+    "skip":10,
+    "limit":10
+}
