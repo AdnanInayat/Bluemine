@@ -259,6 +259,10 @@ input[type=text]:placeholder {
 
 /* Simple CSS3 Fade-in Animation */
 
+.underlineHover {
+    font-size: 20px;
+}
+
 .underlineHover:after {
     display: block;
     left: 0;
