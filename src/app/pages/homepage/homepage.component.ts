@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { HomepageService } from './homepage.service';
+import { Router } from '@angular/router';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-homepage',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
-  constructor() { }
+  model : any={};  
+  isLoginError : boolean = false;
+
+  constructor(private homepageservice:HomepageService, private router:Router) { }
 
   ngOnInit() {
   }
+
+  login(){
+    this.homepageservice.Login(this.model).subscribe((data : any) => {
+      // console.log(data);
+      localStorage.setItem('userToken', data.token);
+      // console.log('token from local storage', localStorage.userToken);
+       this.router.navigate(['/dashboard']);
+      },
+      (err : HttpErrorResponse)=>{
+        this.isLoginError = true;
+      }
+      );
+  };
 
 }
