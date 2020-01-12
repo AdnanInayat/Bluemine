@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HomepageService } from './homepage.service';
+import { HomepageService } from '../../services/homepage.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
