@@ -281,4 +281,28 @@ export class UsersController {
     }
     throw new HttpErrors.Unauthorized();
   }
+  @get('/users-dd', {
+    security: OPERATION_SECURITY_SPEC,
+    responses: {
+      '200': {
+        description: 'Users for dropdown',
+        content: {
+          'application/json': {
+            schema: {},
+          },
+        },
+      },
+    },
+  })
+  async usersForDropdown(): Promise<Array<any>> {
+    var users = await this.userRepository.find();
+    let ddUsers = Array<any>();
+    users.forEach((v, i)=>{
+      ddUsers.push({
+        id: v.id,
+        name: v.name
+      })
+    });
+    return ddUsers;
+  }
 }
