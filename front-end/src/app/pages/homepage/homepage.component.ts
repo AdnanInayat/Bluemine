@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HomepageService } from '../../services/homepage.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
@@ -10,27 +10,28 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class HomepageComponent implements OnInit {
 
-  model : any={};  
-  isLoginError : boolean = false;
+  model: any = {};
+  isLoginError: boolean = false;
 
-  constructor(private homepageservice:HomepageService, private router:Router) { }
+  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute) {
+   }
 
   ngOnInit() {
   }
 
-  login(){
-    this.homepageservice.Login(this.model).subscribe((data : any) => {
+  login() {
+    this.homepageservice.Login(this.model).subscribe((data: any) => {
       // console.log(data);
       localStorage.setItem('userToken', data.token);
       console.log("user token ", localStorage.userToken);
            
       // console.log('token from local storage', localStorage.userToken);
-       this.router.navigate(['/dashboard']);
-      },
-      (err : HttpErrorResponse)=>{
+      this.router.navigate(['/dashboard']);
+    },
+      (err: HttpErrorResponse) => {
         this.isLoginError = true;
       }
-      );
-  };
+    );
+  }
 
 }
