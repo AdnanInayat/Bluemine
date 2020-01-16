@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { HomepageService } from '../../services/homepage.service';
+import { HomepageService } from './homepage.service';
 
 describe('HomepageService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));

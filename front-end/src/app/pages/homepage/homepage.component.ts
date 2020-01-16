@@ -22,6 +22,8 @@ export class HomepageComponent implements OnInit {
     this.homepageservice.Login(this.model).subscribe((data : any) => {
       // console.log(data);
       localStorage.setItem('userToken', data.token);
+      console.log("user token ", localStorage.userToken);
+           
       // console.log('token from local storage', localStorage.userToken);
        this.router.navigate(['/dashboard']);
       },
