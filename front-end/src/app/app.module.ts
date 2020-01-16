@@ -9,7 +9,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
-import { NavComponent } from './pages/nav/nav.component';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule,
   MatListModule, MatCardModule, MatNativeDateModule, MatBadgeModule, MatMenuModule } from '@angular/material';
 
@@ -18,8 +17,7 @@ import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, Ma
     AppComponent,
     HomepageComponent,
     RegisterComponent,
-    DashboardComponent,
-    NavComponent
+    DashboardComponent
   ],
   imports: [
     BrowserModule,
