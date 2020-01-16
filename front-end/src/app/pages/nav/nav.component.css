@@ -1,0 +1,50 @@
+  
+  .sidenav-container {
+    height: 100%;
+  }
+  
+  .sidenav {
+    width: 200px;
+    box-shadow: 3px 0 6px rgba(0,0,0,.24);
+  }
+  
+  .brand {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .input-group input {
+    height: auto;
+  }
+  .spacer {
+    flex: 1 1 auto;
+  }
+  
+  .toolbar-buttons button {
+    margin: 4px;
+  }
+  
+  .mat-toolbar-row, .mat-toolbar-single-row {
+    height: 50px;
+    background: #ffffff;
+  }
+
+  #icon {
+    width: 165px;
+    height: 150px;
+  } 
+
+  .mat-drawer-inner-container {
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: #ffffff;
+    font-family: "Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: .894rem;
+    font-weight: 400;
+  }
+
+  .bg-sidenav-theme {
+    background-color: #2e323a!important;
+    color: #1d2944;
+  }

@@ -6,6 +6,4 @@ export interface Login {
     address: string;
     city: string;
     country: string;
-    
   }
-  
