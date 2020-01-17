@@ -5,31 +5,31 @@
 
 
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-    <div class="fadeIn first">
-      <img src="../../../assets/logo/bluemine.png" id="icon" alt="Bluemine" />
-    </div>
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img src="../../../assets/logo/bluemine.png" id="icon" alt="Bluemine" />
+        </div>
 
-    <h3 class="card-title mt-3 text-center fadeIn first">Create An Account</h3>
+        <h3 class="card-title mt-3 text-center fadeIn first">Create An Account</h3>
 
-    <form #registerForm="ngForm" (ngSubmit)="register()">
-      <input type="text" id="name" class="fadeIn second" [(ngModel)]="user.name" name="name" placeholder="name">
-      <input type="email" id="email" class="fadeIn third" [(ngModel)]="user.email" name="email" placeholder="Enter your email">
-      <input type="text" id="phone" class="fadeIn fourth" [(ngModel)]="user.phone" name="phone" placeholder="Enter your phone number">
-      <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender" name="gender" placeholder="Gender" >
-        <option selected="Gender"> Gender </option>
+        <form #registerForm="ngForm" (ngSubmit)="register()">
+            <input type="text" id="name" class="fadeIn second" [(ngModel)]="user.name" name="name" placeholder="name">
+            <input type="email" id="email" class="fadeIn third" [(ngModel)]="user.email" name="email" placeholder="Enter your email">
+            <input type="text" id="phone" class="fadeIn fourth" [(ngModel)]="user.phone" name="phone" placeholder="Enter your phone number">
+            <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender" name="gender">
+        <option selected="Gender" class="inputField"> Gender </option>
         <option class="inputField">Male</option>
         <option class="inputField">Female</option>
         <option class="inputField">Other</option>
       </select>
-      <input type="password" id="password" class="fadeIn sixth" [(ngModel)]="user.password" name="password" placeholder="Password">
-      <input type="password" id="rPassword" class="fadeIn seventh" name="rPassword" placeholder="Repeat Password">
-      <input type="submit" class="fadeIn eigth" value="Create Account">
-    </form>
+            <input type="password" id="password" class="fadeIn sixth" [(ngModel)]="user.password" name="password" placeholder="Password">
+            <input type="password" id="rPassword" class="fadeIn seventh" name="rPassword" placeholder="Repeat Password">
+            <input type="submit" class="fadeIn eigth" value="Create Account">
+        </form>
 
-    <div id="formFooter">
-      <!-- <p class="text-center">Have an account? <a href="">Log In</a> </p> -->
-      <a class="underlineHover" [routerLink]="['/']" routerLinkActive="router-link-active">Log In</a>
+        <div id="formFooter">
+            <!-- <p class="text-center">Have an account? <a href="">Log In</a> </p> -->
+            <a class="underlineHover" [routerLink]="['/']" routerLinkActive="router-link-active">Log In</a>
+        </div>
     </div>
-  </div>
-</div> 
+</div>
