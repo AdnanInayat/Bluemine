@@ -11,13 +11,15 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule,
   MatListModule, MatCardModule, MatNativeDateModule, MatBadgeModule, MatMenuModule } from '@angular/material';
+import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomepageComponent,
     RegisterComponent,
-    DashboardComponent
+    DashboardComponent,
+    TicketpageComponent
   ],
   imports: [
     BrowserModule,
