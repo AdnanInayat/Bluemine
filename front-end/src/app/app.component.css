@@ -11,9 +11,12 @@ body {
     transition: margin .25s ease-out;
   }
   
+  .bg-nav-color {
+    background:#acc!important;
+  }
+
   #sidebar-wrapper .sidebar-heading {
     padding: 0.875rem .25rem;
-    border: solid 1px black;
     font-size: 1.2rem;
   }
   
