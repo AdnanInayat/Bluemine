@@ -10,7 +10,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class NewticketComponent implements OnInit {
 
-  newTicket: any = {};
+  model: any = {};
+
 
   constructor(private newticketService: NewticketService, private router: Router) { }
 
@@ -18,7 +19,7 @@ export class NewticketComponent implements OnInit {
   }
 
   postNewTicket(){
-    this.newticketService.newTicket(this.newTicket).subscribe((data: any) => {
+    this.newticketService.newTicket(this.model).subscribe((data: any) => {
       console.log(data);      
       // console.log('token from local storage', localStorage.userToken);
       this.router.navigate(['/dashboard']);
