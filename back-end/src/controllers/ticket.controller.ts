@@ -53,9 +53,10 @@ export class TicketController {
     @inject(SecurityBindings.USER) currentUserProfile: UserProfile,
   ): Promise<tTicket> {
     currentUserProfile.id = currentUserProfile[securityId];
-    tTicket.assignedBy = currentUserProfile.id;
+    tTicket.assignedByUserId = parseInt(currentUserProfile.id, 10);
     tTicket.created_at = new Date();
     tTicket.updated_at = new Date();
+    console.log(tTicket);
     return this.ticketRepository.create(tTicket);
   }
 

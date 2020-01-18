@@ -20,8 +20,8 @@ export class TicketRepository extends DefaultCrudRepository<
   typeof tTicket.prototype.id,
   TicketRelations
 > {
-  public readonly assignedTo: BelongsToAccessor<tUser,typeof tUser.prototype.id>;
-  public readonly assignedBy: BelongsToAccessor<tUser,typeof tUser.prototype.id>;
+  public readonly assignedToUser: BelongsToAccessor<tUser,typeof tUser.prototype.id>;
+  public readonly assignedByUser: BelongsToAccessor<tUser,typeof tUser.prototype.id>;
   public readonly comments: HasManyRepositoryFactory<TComment,typeof TComment.prototype.id>;
   
   constructor(
@@ -32,11 +32,11 @@ export class TicketRepository extends DefaultCrudRepository<
     protected commentRepositoryGetter: Getter<CommentRepository>,
   ) {
     super(tTicket, dataSource);
-    this.assignedTo = this.createBelongsToAccessorFor('assignedTo',userRepositoryGetter);
-    this.registerInclusionResolver('assignedTo', this.assignedTo.inclusionResolver);
+    this.assignedToUser = this.createBelongsToAccessorFor('assignedToUser',userRepositoryGetter);
+    this.registerInclusionResolver('assignedToUser', this.assignedToUser.inclusionResolver);
 
-    this.assignedBy = this.createBelongsToAccessorFor('assignedTo',userRepositoryGetter);
-    this.registerInclusionResolver('assignedBy', this.assignedBy.inclusionResolver);
+    this.assignedByUser = this.createBelongsToAccessorFor('assignedToUser',userRepositoryGetter);
+    this.registerInclusionResolver('assignedByUser', this.assignedByUser.inclusionResolver);
 
     this.comments = this.createHasManyRepositoryFactoryFor('comments', commentRepositoryGetter,);
     this.registerInclusionResolver('comments', this.comments.inclusionResolver);
