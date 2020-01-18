@@ -87,7 +87,7 @@ export class TicketController {
       },
     },
   })
-  @authenticate('jwt')
+  // @authenticate('jwt')
   async find(
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>,
   ): Promise<tTicket[]> {

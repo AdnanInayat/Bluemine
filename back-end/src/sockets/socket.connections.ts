@@ -1,6 +1,6 @@
 import { bind, BindingScope, inject, CoreBindings, Application } from '@loopback/core';
 import { Server as SocketServer } from 'socket.io';
-import * as socketio from 'socket.io';
+import socketio from 'socket.io';
 import { BlueMineApiApplication } from '..';
 import { SocketBindings } from '../keys';
 import { AnyObject } from '@loopback/repository';

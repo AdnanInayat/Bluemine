@@ -8,6 +8,7 @@ import {
 } from '@loopback/repository';
 import {tUserCredential} from './tUserCredential.model';
 import { tUser } from '.';
+import { TComment } from './tComment.model';
 
 @model({name: "tTicket"})
 export class tTicket extends Entity {
@@ -45,6 +46,9 @@ export class tTicket extends Entity {
 
   @belongsTo(() => tUser, {keyFrom : "assignedTo", keyTo: "id"})
   assignedTo?: number;
+
+  @hasMany(() => TComment, {keyTo: 'ticketId'})
+  comments: Array<TComment>
 
   constructor(data?: Partial<tTicket>) {
     super(data);

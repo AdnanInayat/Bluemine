@@ -32,7 +32,7 @@ import {
 import {createEnforcer} from './services/enforcer';
 import {CasbinAuthorizationProvider} from './services/authorizor';
 import { MultipartFormDataBodyParser } from './multipart-form-data-body-parser';
-import * as socketio from "socket.io";
+import socketio from "socket.io";
 import { SocketConnection } from './sockets/socket.connections';
 import { SocketDriver } from './sockets/socket.driver';
 

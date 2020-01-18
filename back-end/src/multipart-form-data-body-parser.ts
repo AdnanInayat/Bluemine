@@ -1,4 +1,4 @@
-import * as multer from 'multer';
+import multer from 'multer';
 import { BodyParser, Request, RequestBody } from '@loopback/rest';
 
 export class MultipartFormDataBodyParser implements BodyParser {
