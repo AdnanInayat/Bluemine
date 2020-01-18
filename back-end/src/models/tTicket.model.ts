@@ -47,11 +47,11 @@ export class tTicket extends Entity {
   })
   updated_at?: Date;
 
-  @belongsTo(() => tUser, {keyFrom : "assignedBy", keyTo: "id"})
-  assignedBy?: number;
+  @belongsTo(() => tUser, {keyFrom : "assignedByUserId", keyTo: "id"})
+  assignedByUserId?: number;
 
-  @belongsTo(() => tUser, {keyFrom : "assignedTo", keyTo: "id"})
-  assignedTo?: number;
+  @belongsTo(() => tUser, {keyFrom : "assignedToUserId", keyTo: "id"})
+  assignedToUserId?: number;
 
   @hasMany(() => TComment, {keyTo: 'ticketId'})
   comments: Array<TComment>

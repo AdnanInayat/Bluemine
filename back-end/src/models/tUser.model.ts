@@ -98,10 +98,10 @@ export class tUser extends Entity {
   @hasOne(() => tUserCredential)
   userCredentials: tUserCredential;
 
-  @hasMany(() => tTicket, {keyTo: 'assignedBy'})
+  @hasMany(() => tTicket, {keyTo: 'assignedByUserId'})
   ticketsAssignedByMe: Array<tTicket>
 
-  @hasMany(() => tTicket, {keyTo: 'assignedTo'})
+  @hasMany(() => tTicket, {keyTo: 'assignedToUserId'})
   ticketsAssignedToMe: Array<tTicket>
   
   @hasMany(() => TComment, {keyTo: 'userId'})
