@@ -1,113 +1,35 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
 <!------ Include the above in your HEAD tag ---------->
 
 
 <div class="wrapper fadeInDown">
-  <div id="formContent">
-    <div class="fadeIn first">
-      <img src="../../../assets/logo/bluemine.png" id="icon" alt="Bluemine" />
-    </div>
+    <div id="formContent">
+        <div class="fadeIn first">
+            <img src="../../../assets/logo/bluemine.png" id="icon" alt="Bluemine" />
+        </div>
 
-    <h3 class="card-title mt-3 text-center fadeIn first">Create An Account</h3>
+        <h3 class="card-title mt-3 text-center fadeIn first">Create An Account</h3>
 
-    <form #registerForm="ngForm" (ngSubmit)="register()">
-      <input type="text" id="name" class="fadeIn second" [(ngModel)]="user.name" name="name" placeholder="name">
-      <input type="email" id="email" class="fadeIn third" [(ngModel)]="user.email" name="email" placeholder="Enter your email">
-      <input type="text" id="phone" class="fadeIn fourth" [(ngModel)]="user.phone" name="phone" placeholder="Enter your phone number">
-      <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender" name="gender" placeholder="Gender" >
-        <option selected="Gender"> Gender </option>
+        <form #registerForm="ngForm" (ngSubmit)="register()">
+            <input type="text" id="name" class="fadeIn second" [(ngModel)]="user.name" name="name" placeholder="name">
+            <input type="email" id="email" class="fadeIn third" [(ngModel)]="user.email" name="email" placeholder="Enter your email">
+            <input type="text" id="phone" class="fadeIn fourth" [(ngModel)]="user.phone" name="phone" placeholder="Enter your phone number">
+            <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender" name="gender">
+        <option selected="Gender" class="inputField"> Gender </option>
         <option class="inputField">Male</option>
         <option class="inputField">Female</option>
         <option class="inputField">Other</option>
       </select>
-      <input type="password" id="password" class="fadeIn sixth" [(ngModel)]="user.password" name="password" placeholder="Password">
-      <input type="password" id="rPassword" class="fadeIn seventh" name="rPassword" placeholder="Repeat Password">
-      <input type="submit" class="fadeIn eigth" value="Create Account">
-    </form>
+            <input type="password" id="password" class="fadeIn sixth" [(ngModel)]="user.password" name="password" placeholder="Password">
+            <input type="password" id="rPassword" class="fadeIn seventh" name="rPassword" placeholder="Repeat Password">
+            <input type="submit" class="fadeIn eigth" value="Create Account">
+        </form>
 
-    <div id="formFooter">
-      <!-- <p class="text-center">Have an account? <a href="">Log In</a> </p> -->
-      <a class="underlineHover" [routerLink]="['/']" routerLinkActive="router-link-active">Log In</a>
-    </div>
-  </div>
-</div> 
-
-
-
-<!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
-<!-- Include the above in your HEAD tag  -->
-<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
-<div class="container">
-  <div class="card bg-light">
-    <article class="card-body mx-auto" style="max-width: 400px;">
-      <h4 class="card-title mt-3 text-center">Create Account</h4>
-      <p class="text-center">Get started with your free account</p>
-      <p>
-        <a href="" class="btn btn-block btn-twitter"> <i class="fab fa-twitter"></i>   Login via Twitter</a>
-        <a href="" class="btn btn-block btn-facebook"> <i class="fab fa-facebook-f"></i>   Login via facebook</a>
-      </p>
-      <p class="divider-text">
-        <span class="bg-light">OR</span>
-      </p>
-      <form>
-        <div class="form-group input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-          </div>
-          <input type="text" id="email" class="fadeIn second" [(ngModel)]="model.name" name="name"
-            placeholder="Full name">
+        <div id="formFooter">
+            <!-- <p class="text-center">Have an account? <a href="">Log In</a> </p> -->
+            <a class="underlineHover" [routerLink]="['/']" routerLinkActive="router-link-active">Log In</a>
         </div>
-  </div>
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
     </div>
-    <input name="" class="fadeIn second" placeholder="Email address" type="email">
-  </div>
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-    </div>
-    <select class="custom-select" style="max-width: 120px;">
-      <option selected="">+49</option>
-      <option value="1">+49</option>
-      <option value="2">+1</option>
-      <option value="3">+92</option>
-    </select>
-    <input name="" class="form-control" placeholder="Phone number" type="text">
-  </div>
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-venus-mars"></i> </span>
-    </div>
-    <select class="form-control-lg" placeholder="Gender">
-      <option selected=""> Gender </option>
-      <option class="inputField">Male</option>
-      <option class="inputField">Female</option>
-      <option class="inputField">Other</option>
-    </select>
-  </div>
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-    </div>
-    <input class="form-control" placeholder="Create password" type="password">
-  </div>
-  <div class="form-group input-group">
-    <div class="input-group-prepend">
-      <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-    </div>
-    <input class="form-control" placeholder="Repeat password" type="password">
-  </div>
-  <div class="form-group">
-    <input type="submit" class="fadeIn fourth" value="Create Account">
-  </div>
-  <p class="text-center">Have an account? <a href="">Log In</a> </p>
-  </form>
-  </article>
-</div> -->
+</div>

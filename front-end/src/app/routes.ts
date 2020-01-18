@@ -1,13 +1,18 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
 import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
-import { NavComponent } from './pages/nav/nav.component';
+import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
+import { NewticketComponent } from './pages/newticket/newticket.component';
+import { AppComponent } from './app.component';
+import { ModuleWithProviders } from '@angular/core';
 
 export const appRoutes: Routes = [
     { path : 'register', component : RegisterComponent },
     { path : 'dashboard', component : DashboardComponent },
     { path : 'home', component : HomepageComponent },
-    { path : 'nav', component : NavComponent },
+    { path : 'ticket', component : TicketpageComponent },
+    { path : 'newticket', component : NewticketComponent },    
     { path : '', redirectTo : '/home', pathMatch : 'full' }
 ];
+

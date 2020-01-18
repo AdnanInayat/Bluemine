@@ -1,0 +1,17 @@
+
+.cardMain {
+    margin: 10px 0px;
+}
+
+.cardDes {
+    background: rgb(247, 243, 243);
+    border: 1ch
+}
+
+.cardDet {
+    border: 0ch;
+    font-family: "Oxygen","Ubuntu","Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: .894rem;
+    font-weight: 400;
+    margin: 0px;
+}
