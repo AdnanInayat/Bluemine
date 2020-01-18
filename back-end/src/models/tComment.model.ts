@@ -17,12 +17,21 @@ export class TComment extends Entity {
   })
   body: string;
 
+  @property({
+    type: 'date',
+  })
+  created_at?: Date;
+
+  @property({
+    type: 'date',
+  })
+  updated_at?: Date;
+
   @belongsTo(() => tTicket, {keyFrom : "ticketId", keyTo: "id"})
   ticketId?: number;
 
   @belongsTo(() => tUser, {keyFrom : "userId", keyTo: "id"})
   userId?: number;
-
   constructor(data?: Partial<TComment>) {
     super(data);
   }

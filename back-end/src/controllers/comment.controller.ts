@@ -47,6 +47,8 @@ export class CommentController {
     })
     tComment: Omit<TComment, 'id'>,
   ): Promise<TComment> {
+    tComment.created_at = new Date();
+    tComment.updated_at = new Date();
     return this.commentRepository.create(tComment);
   }
 
@@ -144,6 +146,7 @@ export class CommentController {
     })
     tComment: TComment,
   ): Promise<void> {
+    tComment.updated_at = new Date();
     await this.commentRepository.updateById(id, tComment);
   }
 

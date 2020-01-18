@@ -32,6 +32,12 @@ export class tTicket extends Entity {
   description: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  status: string;
+
+  @property({
     type: 'date',
   })
   created_at?: Date;
