@@ -54,6 +54,8 @@ export class TicketController {
   ): Promise<tTicket> {
     currentUserProfile.id = currentUserProfile[securityId];
     tTicket.assignedBy = currentUserProfile.id;
+    tTicket.created_at = new Date();
+    tTicket.updated_at = new Date();
     return this.ticketRepository.create(tTicket);
   }
 
@@ -87,7 +89,7 @@ export class TicketController {
       },
     },
   })
-  @authenticate('jwt')
+  // @authenticate('jwt')
   async find(
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>,
   ): Promise<tTicket[]> {
@@ -156,6 +158,7 @@ export class TicketController {
     })
     tTicket: tTicket,
   ): Promise<void> {
+    tTicket.updated_at = new Date();
     await this.ticketRepository.updateById(id, tTicket);
   }
 
