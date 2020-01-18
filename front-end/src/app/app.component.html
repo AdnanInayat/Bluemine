@@ -4,8 +4,8 @@
     <div class="bg-light border-right bg-nav-color" id="sidebar-wrapper">
         <div class="sidebar-heading"> Bluemine </div>
         <div class="list-group list-group-flush bg-nav-color">
-            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Dashboard</a>
-            <a [routerLink]="['/newticket']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">New Tickets</a>
+            <a [routerLink]="['dashboard']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">Dashboard</a>
+            <a [routerLink]="['newticket']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">New Tickets</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">In Process Tickets</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Completed Tickets</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Assigned By Me</a>
@@ -42,7 +42,7 @@
                             <a class="dropdown-item" href="#">Your tickets</a>
                             <a class="dropdown-item" href="#">Setting</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Logout</a>
+                            <a class="dropdown-item" [routerLink]="['/home']" routerLinkActive="router-link-active" (onClick)="logout()">Logout</a>
                         </div>
                     </li>
                 </ul>
