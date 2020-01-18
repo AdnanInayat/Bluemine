@@ -8,7 +8,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
+import { appRoutes} from './routes';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule,
   MatListModule, MatCardModule, MatNativeDateModule, MatBadgeModule, MatMenuModule } from '@angular/material';
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
