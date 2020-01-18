@@ -10,15 +10,19 @@ export class NewticketService extends MainService {
   constructor(private http: HttpClient) {
     
     super();
-    this.url += 'ticket';
     
+    this.token = localStorage.getItem('userToken');
    }
 
-   newTicket(ticket: any) {
-    let token = localStorage.getItem('userToken');
-    console.log(token);      
-
-    return this.http.post<any>(this.url, ticket, { headers: this.header });
+   newTicket(ticket: any) {    
+    this.url += 'ticket';
+   //console.log("token from service", httpOptions);
+      this.token = localStorage.getItem("userToken");
+      this.header = this.header.append("Authorization", "Bearer " + this.token);
+      if(typeof ticket.assignedTo !== 'undefined' && typeof ticket.assignedTo === "string"){
+        ticket.assignedTo = parseInt(ticket.assignedTo);
+      }
+    return this.http.post<any>(this.url, ticket, { headers: this.header});
   }
 
 }

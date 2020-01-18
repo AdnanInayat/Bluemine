@@ -1,4 +1,4 @@
-<form #newTicket="ngForm" (ngSubmit)="postNewTicket()">
+<form #newTicketForm="ngForm" (ngSubmit)="postNewTicket()">
     <fieldset>
         <legend>New Ticket</legend>
         <!-- <div class="form-group row">
@@ -7,35 +7,25 @@
                 <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com">
             </div>
         </div> -->
+        <div class="form-group">{{model | json}}</div>
         <div class="form-group">
             <label for="title">Title</label>
-            <input type="text" name="title" [(ngModel)]="model.title" class="form-control" id="title" placeholder="Ticket Title"> {{model.title}}
+            <input type="text" name="title" [(ngModel)]="model.title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Ticket Title">
             <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
         </div>
 
         <div class="form-group">
             <label for="exampleTextarea">Description</label>
-            <textarea name="description" [(ngModel)]="model.description" class="form-control" id="description" rows="5"></textarea> {{model.description}}
-        </div>
-        <div class="form-group">
-            <label for="assignedBy">Assigned By</label>
-            <select name="assignedBy" [(ngModel)]="model.assignedBy" class="form-control" id="assignedBy">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select> {{model.assignedBy}}
+            <textarea name="description" [(ngModel)]="model.description" class="form-control" id="exampleTextarea" rows="5"></textarea>
         </div>
         <div class="form-group">
             <label for="exampleSelect1">Assigned To</label>
-            <select name="assignedTo" [(ngModel)]="model.assignedTo" class="form-control" id="assignedTo">
-          <option>1</option>
-          <option>2</option>
-          <option>3</option>
-          <option>4</option>
-          <option>5</option>
-        </select> {{model.assignedTo}}
+            <select name="id" [(ngModel)]="model.id" class="form-control" id="id">
+          <option *ngFor="let result of results" value="{{result.id}}">
+              {{result.name}}
+          </option>
+          
+        </select>
         </div>
 
 

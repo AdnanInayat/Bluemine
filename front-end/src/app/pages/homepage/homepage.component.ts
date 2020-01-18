@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HomepageService } from '../../services/homepage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-homepage',
@@ -12,9 +13,17 @@ export class HomepageComponent implements OnInit {
 
   model: any = {};
   isLoginError: boolean = false;
+  isLogged: boolean;
 
-  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute) {
-   }
+  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute, private appComp: AppComponent,) {
+    // var token = localStorage.getItem('userToken');
+    // if(typeof token !== 'undefined' && token !== null){
+    //   this.isLogged = true;
+    // }
+    // else{
+    //   this.isLogged = false;
+    // }
+  }
 
   ngOnInit() {
     // localStorage.clear(); 

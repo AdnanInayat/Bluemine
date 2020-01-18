@@ -281,7 +281,7 @@ export class UsersController {
     }
     throw new HttpErrors.Unauthorized();
   }
-  @get('/users-dd', {
+  @get('/users/dd', {
     security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {

@@ -16,7 +16,6 @@ export class HomepageService extends MainService {
    }
 
    Login(model : any) {  
-     console.log(model); 
       return this.http.post<any>(this.url, model, { headers: this.header }); 
-  }  
+  }
 }

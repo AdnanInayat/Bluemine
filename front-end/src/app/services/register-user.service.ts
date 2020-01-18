@@ -11,11 +11,18 @@ export class RegisterUserService extends MainService {
 
   constructor(private http: HttpClient) {
     super();
-    this.url += 'users/signup';
    }
 
   register(user: any) {
     console.log(user);
-    return this.http.post<any>(this.url, user, { headers: this.header });
+    // this.url += 'users/signup';
+    return this.http.post<any>(this.url+'users/signup', user, { headers: this.header });
   }
+
+  getUsers(){
+    // this.url += 'users/dd';
+    return this.http.get<any>(this.url+'users/dd', { headers: this.header });
+
+  }
+
 }
