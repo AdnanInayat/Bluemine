@@ -7,7 +7,6 @@
                 <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com">
             </div>
         </div> -->
-        <div class="form-group">{{model | json}}</div>
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" name="title" [(ngModel)]="model.title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Ticket Title">
@@ -21,18 +20,18 @@
         </div>
         <div class="form-group ">
             <label for="exampleSelect1 ">Assigned To</label>
-            <select name="assignedTo " [(ngModel)]="model.assignedTo " class="form-control " id="id ">
-          <option *ngFor="let result of results " value="{{result.id}} ">
+            <select name="assignedToUserId" [(ngModel)]="model.assignedToUserId" class="form-control " id="id">
+          <option *ngFor="let result of results " value="{{result.id}}">
               {{result.name}}
           </option>
           
         </select>
         </div>
-        <div class="form-group ">
-            <input type="text " name="status " [(ngModel)]="model.status " class="form-control " id="status " aria-describedby="emailHelp " placeholder="Ticket Title ">
+        <!-- <div class="form-group ">
+            <input type="text " name="status " [(ngModel)]="model.status" class="form-control " id="status">
 
-        </div>
+        </div> -->
 
-        <button type="submit " class="btn btn-primary float-right ">Submit</button>
+        <button type="submit" class="btn btn-primary float-right ">Submit</button>
     </fieldset>
 </form>

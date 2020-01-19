@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 })
 export class NewticketComponent implements OnInit {
 
-  model: any = { assignedBy : 0};
+  model: any = {status: "incomplete"};
   newTicketForm: FormGroup;
   public results: any[];
 
