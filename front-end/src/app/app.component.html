@@ -10,7 +10,7 @@
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Completed Tickets</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Assigned By Me</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Assigned To Me</a>
-            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Profile</a>
+            <a [routerLink]="['/profile']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">Profile</a>
             <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Status</a>
         </div>
     </div>
@@ -29,7 +29,7 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" [routerLink]="['/home']" routerLinkActive="router-link-active">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Alerts</a>
