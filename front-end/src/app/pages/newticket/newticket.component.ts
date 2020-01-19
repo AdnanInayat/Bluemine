@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NewticketService } from 'src/app/services/newticket.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { RegisterUserService } from 'src/app/services/register-user.service';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-newticket',
@@ -10,15 +12,22 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class NewticketComponent implements OnInit {
 
-  model: any = {};
+  model: any = {status: "incomplete"};
+  newTicketForm: FormGroup;
+  public results: any[];
 
   test: string = "helloo";
 
-  constructor(private newticketService: NewticketService, private router: Router) {
+  constructor(private newticketService: NewticketService, private getUserService: RegisterUserService, private router: Router, private formBuilder: FormBuilder) {
     this.test += " world";
    }
 
   ngOnInit() {
+    this.usersForTicket();
+
+    this.newTicketForm = this.formBuilder.group({
+      name : ["" , [Validators.required]]
+    })
   }
 
   postNewTicket(){
@@ -30,5 +39,13 @@ export class NewticketComponent implements OnInit {
     );
   }
   
+  usersForTicket(){
+    this.getUserService.getUsers().subscribe((data)=>{
+      console.log(data);
+      this.results = data;
+      console.log("results", this.results)
+    });
+
+  }
 
 }
