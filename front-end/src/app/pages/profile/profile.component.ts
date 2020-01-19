@@ -36,18 +36,7 @@ export class ProfileComponent implements OnInit {
       console.log(data);
       
       this.userData = data;
-
-      // var uData = Object.values(data);
-
-    //   this.profileForm = this.formBuilder.group({
-    //     name : [uData[0].name, [Validators.required]],
-    //     email : [uData[0].email, [Validators.required]],
-    //     phone : [uData[0].phone, [Validators.required]],
-    //     address : [uData[0].address , [Validators.required]],
-    //     city : [uData[0].city, [Validators.required]],
-    //     country : [uData[0].country, [Validators.required]]      
-    //   })
-
+     
     });
 
     
