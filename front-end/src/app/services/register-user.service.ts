@@ -25,4 +25,11 @@ export class RegisterUserService extends MainService {
 
   }
 
+  userProfile(){
+
+    this.token = localStorage.getItem("userToken");
+    this.header = this.header.append("Authorization", "Bearer " + this.token);
+    return this.http.get<any>(this.url+'users/me',{ headers: this.header});
+  }
+
 }

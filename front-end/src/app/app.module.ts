@@ -13,6 +13,7 @@ import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, Ma
   MatListModule, MatCardModule, MatNativeDateModule, MatBadgeModule, MatMenuModule } from '@angular/material';
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 import { NewticketComponent } from './pages/newticket/newticket.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { NewticketComponent } from './pages/newticket/newticket.component';
     RegisterComponent,
     DashboardComponent,
     TicketpageComponent,
-    NewticketComponent
+    NewticketComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
