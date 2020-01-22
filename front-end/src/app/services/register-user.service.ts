@@ -32,4 +32,11 @@ export class RegisterUserService extends MainService {
     return this.http.get<any>(this.url+'users/me',{ headers: this.header});
   }
 
+  updateProfile(data){
+
+    // this.token = localStorage.getItem("userToken");
+    const id = localStorage.getItem("userId");
+    return this.http.put<any>(this.url+'users/'+id, data, { headers: this.header});
+  }
+
 }
