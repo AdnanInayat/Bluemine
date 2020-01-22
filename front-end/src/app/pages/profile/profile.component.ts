@@ -19,14 +19,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.getUserProfile();
 
-    this.profileForm = this.formBuilder.group({
-      name : ["", [Validators.required]],
-      email : ["", [Validators.required]],
-      phone : ["", [Validators.required]],
-      address : ["" , [Validators.required]],
-      city : ["", [Validators.required]],
-      country : ["", [Validators.required]]      
-    })
+    
     
   }
 
@@ -35,22 +28,36 @@ export class ProfileComponent implements OnInit {
     this.userService.userProfile().subscribe((data)=>{
       console.log(data);
       
-      this.userData = data;
+      // this.userData = data;
+      // var udata = Object.values(data);
+      this.model = data;
 
-      // var uData = Object.values(data);
+      console.log("model data new", this.model);
+      // const newModel = JSON.stringify(this.model);
+      // console.log(newModel); 
 
-    //   this.profileForm = this.formBuilder.group({
-    //     name : [uData[0].name, [Validators.required]],
-    //     email : [uData[0].email, [Validators.required]],
-    //     phone : [uData[0].phone, [Validators.required]],
-    //     address : [uData[0].address , [Validators.required]],
-    //     city : [uData[0].city, [Validators.required]],
-    //     country : [uData[0].country, [Validators.required]]      
-    //   })
+      // this.profileForm = this.formBuilder.group({
+      //   name : ["", [Validators.required]],
+      //   email : ["", [Validators.required]],
+      //   phone : ["", [Validators.required]],
+      //   address : ["" , [Validators.required]],
+      //   city : ["", [Validators.required]],
+      //   country : ["", [Validators.required]]      
+      // });
+
+           
+    });    
+  }
+
+
+  updUserUProfile(){
+    // console.log(this.model);
+    // var id = localStorage.getItem(userId);
+    console.log(this.model);    
+    this.userService.updateProfile(this.model).subscribe((data)=>{
+      console.log(this.model);
 
     });
-
-    
   }
 
 }
