@@ -1,5 +1,6 @@
 <div class="d-flex" id="wrapper">
 
+<<<<<<< HEAD
   <!-- Sidebar -->
   <div class="bg-light border-right bg-sidebar-color" id="sidebar-wrapper">
     <div class="sidebar-heading"> Bluemine </div>
@@ -15,6 +16,21 @@
       <a [routerLink]="['/profile']" routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
       <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Status</a>
+=======
+    <!-- Sidebar -->
+    <div class="bg-light border-right bg-nav-color" id="sidebar-wrapper">
+        <div class="sidebar-heading"> Bluemine </div>
+        <div class="list-group list-group-flush bg-nav-color">
+            <a [routerLink]="['ticket']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">Dashboard</a>
+            <a [routerLink]="['newticket']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">New Tickets</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">In Process Tickets</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Completed Tickets</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Assigned By Me</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Assigned To Me</a>
+            <a [routerLink]="['/profile']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-nav-color">Profile</a>
+            <a href="#" class="list-group-item list-group-item-action bg-light bg-nav-color">Status</a>
+        </div>
+>>>>>>> master
     </div>
   </div>
   <!-- /#sidebar-wrapper -->

@@ -14,6 +14,10 @@
     padding: 1.0rem;
 }
 
+.card-body{
+    padding: 1.0rem;
+}
+
 .cardDet {
     border: 0ch;
     font-family: "Oxygen","Ubuntu","Roboto",-apple-system,BlinkMacSystemFont,"Segoe UI","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
@@ -22,6 +26,7 @@
     margin: 0px;
 }
 
+<<<<<<< HEAD
 .com {
     margin: 10px 0px;
 }
@@ -75,3 +80,21 @@
 textarea{
     margin: 2% 0%;
 } */
+=======
+.cardCom {
+    border-top: 0.5px solid #ccc;
+    font-family: "Segoe UI","Oxygen","Ubuntu","Roboto",-apple-system,BlinkMacSystemFont,"Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    font-size: .894rem;
+    font-weight: 400;
+    margin: 0px;
+}
+
+.btn-user-profile{
+    border-radius: 100%;
+    border: rgb(170, 200, 170) solid 3px;
+    background: rgb(168, 194, 183);
+    font-size: 14pt;
+    font-weight: 500;
+    margin: 0%;
+}
+>>>>>>> master
