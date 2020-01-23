@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from "@angular/common/http";
 import { HttpClient } from '@angular/common/http';
 import { MainService } from './main.service';
 
@@ -15,8 +15,7 @@ export class HomepageService extends MainService {
     this.header = new HttpHeaders(headerSettings); 
    }
 
-  Login(model: any) {
-    console.log(model);
-    return this.http.post<any>(this.url, model, { headers: this.header });
+   Login(model : any) {  
+      return this.http.post<any>(this.url, model, { headers: this.header }); 
   }
 }

@@ -1,0 +1,37 @@
+<form #newTicketForm="ngForm" (ngSubmit)="postNewTicket()">
+    <fieldset>
+        <legend>New Ticket</legend>
+        <!-- <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-10">
+                <input type="text" readonly="" class="form-control-plaintext" id="staticEmail" value="email@example.com">
+            </div>
+        </div> -->
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" name="title" [(ngModel)]="model.title" class="form-control" id="title" aria-describedby="emailHelp" placeholder="Ticket Title">
+            <!-- <input type="text" name="assignedBy" [(ngModel)]="model.assignedBy" type="hidden" value="0"> -->
+            <!-- <small id="emailHelp " class="form-text text-muted ">We'll never share your email with anyone else.</small> -->
+        </div>
+
+        <div class="form-group ">
+            <label for="exampleTextarea ">Description</label>
+            <textarea name="description " [(ngModel)]="model.description " class="form-control " id="exampleTextarea " rows="5 "></textarea>
+        </div>
+        <div class="form-group ">
+            <label for="exampleSelect1 ">Assigned To</label>
+            <select name="assignedToUserId" [(ngModel)]="model.assignedToUserId" class="form-control " id="id">
+          <option *ngFor="let result of results " value="{{result.id}}">
+              {{result.name}}
+          </option>
+          
+        </select>
+        </div>
+        <!-- <div class="form-group ">
+            <input type="text " name="status " [(ngModel)]="model.status" class="form-control " id="status">
+
+        </div> -->
+
+        <button type="submit" class="btn btn-primary float-right ">Submit</button>
+    </fieldset>
+</form>

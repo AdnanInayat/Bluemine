@@ -8,6 +8,7 @@ import {
 } from '@loopback/repository';
 import {tUserCredential} from './tUserCredential.model';
 import { tTicket } from './tTicket.model';
+import { TComment } from '.';
 
 @model({
   settings: {
@@ -97,11 +98,14 @@ export class tUser extends Entity {
   @hasOne(() => tUserCredential)
   userCredentials: tUserCredential;
 
-  @hasMany(() => tTicket, {keyTo: 'assignedBy'})
+  @hasMany(() => tTicket, {keyTo: 'assignedByUserId'})
   ticketsAssignedByMe: Array<tTicket>
 
-  @hasMany(() => tTicket, {keyTo: 'assignedTo'})
+  @hasMany(() => tTicket, {keyTo: 'assignedToUserId'})
   ticketsAssignedToMe: Array<tTicket>
+  
+  @hasMany(() => TComment, {keyTo: 'userId'})
+  comments: Array<TComment>
 
   constructor(data?: Partial<tUser>) {
     super(data);

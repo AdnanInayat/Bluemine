@@ -8,6 +8,7 @@ import {
 } from '@loopback/repository';
 import {tUserCredential} from './tUserCredential.model';
 import { tUser } from '.';
+import { TComment } from './tComment.model';
 
 @model({name: "tTicket"})
 export class tTicket extends Entity {
@@ -31,6 +32,12 @@ export class tTicket extends Entity {
   description: string;
 
   @property({
+    type: 'string',
+    required: true,
+  })
+  status: string;
+
+  @property({
     type: 'date',
   })
   created_at?: Date;
@@ -40,11 +47,14 @@ export class tTicket extends Entity {
   })
   updated_at?: Date;
 
-  @belongsTo(() => tUser, {keyFrom : "assignedBy", keyTo: "id"})
-  assignedBy?: number;
+  @belongsTo(() => tUser, {keyFrom : "assignedByUserId", keyTo: "id"})
+  assignedByUserId?: number;
 
-  @belongsTo(() => tUser, {keyFrom : "assignedTo", keyTo: "id"})
-  assignedTo?: number;
+  @belongsTo(() => tUser, {keyFrom : "assignedToUserId", keyTo: "id"})
+  assignedToUserId?: number;
+
+  @hasMany(() => TComment, {keyTo: 'ticketId'})
+  comments: Array<TComment>
 
   constructor(data?: Partial<tTicket>) {
     super(data);

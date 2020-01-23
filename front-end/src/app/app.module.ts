@@ -6,12 +6,14 @@ import { RegisterComponent } from './pages/register/register.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { appRoutes } from './routes';
+import { appRoutes} from './routes';
 import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, MatIconModule,
   MatListModule, MatCardModule, MatNativeDateModule, MatBadgeModule, MatMenuModule } from '@angular/material';
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
+import { NewticketComponent } from './pages/newticket/newticket.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +21,15 @@ import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
     HomepageComponent,
     RegisterComponent,
     DashboardComponent,
-    TicketpageComponent
+    TicketpageComponent,
+    NewticketComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
     BrowserAnimationsModule,
     MatNativeDateModule,
