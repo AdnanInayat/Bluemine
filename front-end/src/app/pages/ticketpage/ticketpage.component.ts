@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewticketService } from 'src/app/services/newticket.service';
 
 @Component({
   selector: 'app-ticketpage',
