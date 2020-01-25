@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NewticketService } from 'src/app/services/newticket.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ticketServie: NewticketService) { }
 
   ngOnInit() {
+    this.getTicketByIdFn(1);
   }
 
+  getTicketByIdFn(id: any) {
+    this.ticketServie.getTicketById(id).subscribe(data => {
+      console.log('Ticket Detail: ' + data);
+    });
+  }
 }
