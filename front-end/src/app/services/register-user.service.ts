@@ -25,18 +25,18 @@ export class RegisterUserService extends MainService {
 
   }
 
-  userProfile(){
+  // userProfile(){
+    
+  //   this.token = localStorage.getItem("userToken");
+  //   this.header = this.header.append("Authorization", "Bearer " + this.token);
+  //   return this.http.get<any>(this.url+'users/me',{ headers: this.header});
+  // }
 
-    this.token = localStorage.getItem("userToken");
-    this.header = this.header.append("Authorization", "Bearer " + this.token);
-    return this.http.get<any>(this.url+'users/me',{ headers: this.header});
-  }
+  // updateProfile(data){
 
-  updateProfile(data){
-
-    // this.token = localStorage.getItem("userToken");
-    const id = localStorage.getItem("userId");
-    return this.http.put<any>(this.url+'users/'+id, data, { headers: this.header});
-  }
+  //   // this.token = localStorage.getItem("userToken");
+  //   const id = localStorage.getItem("userId");
+  //   return this.http.put<any>(this.url+'users/'+id, data, { headers: this.header});
+  // }
 
 }
