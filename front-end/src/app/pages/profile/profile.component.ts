@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterUserService } from 'src/app/services/register-user.service';
+import { ProfileService } from 'src/app/services/profile.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,7 +15,7 @@ export class ProfileComponent implements OnInit {
 
   public userData: any[];
 
-  constructor(private userService: RegisterUserService, private formBuilder: FormBuilder) { }
+  constructor(private userService: ProfileService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.getUserProfile();
@@ -26,7 +27,7 @@ export class ProfileComponent implements OnInit {
 
   getUserProfile(){
     this.userService.userProfile().subscribe((data)=>{
-      console.log(data);
+      console.log("user data from db", data);
       
       // this.userData = data;
       // var udata = Object.values(data);
