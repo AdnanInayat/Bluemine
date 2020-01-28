@@ -1,18 +1,11 @@
-<div class="card mt-3" >
-    
+<div class="card mt-3" *ngFor="let ticket of tickets; let i = index">
     <div class="row">
-    
-    <div class=" card-body col col-md-1" >
-        <h5>A</h5>
-    
+        <div class=" card-body col col-md-1">
+            <h5>{{i+1}}</h5>
+        </div>
+        <div class="card-body col col-md-9">
+            <h5 class="card-title">Title:{{ticket.title}} </h5>
+            <p class="card-text">Description:{{ticket.description}}</p>
+        </div>
     </div>
-    
-    <div class="card-body col col-md-9" >
-      <h5 class="card-title">Title</h5>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
-    </div>
-  </div>
-
-
-  
+</div>
