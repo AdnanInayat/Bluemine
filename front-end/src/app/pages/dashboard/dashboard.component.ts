@@ -7,16 +7,18 @@ import { NewticketService } from 'src/app/services/newticket.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
+    
+  tickets: any = []
   constructor(private ticketServie: NewticketService) { }
 
   ngOnInit() {
-    this.getTicketByIdFn(1);
+    this.getAllTickets();
   }
 
-  getTicketByIdFn(id: any) {
-    this.ticketServie.getTicketById(id).subscribe(data => {
-      console.log('Ticket Detail: ' + data);
+  getAllTickets() {
+    this.ticketServie.getTickets().subscribe(data => {
+      this.tickets = data;
+      console.log('Ticket Detail: ' + JSON.stringify(data));
     });
   }
 }
