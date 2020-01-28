@@ -24,6 +24,7 @@ export class ProfileService extends AuthmainService {
 
     // this.token = localStorage.getItem("userToken");
     const id = localStorage.getItem("userId");
+    // console.log("id from service", id);
     return this.http.put<any>(this.url+'users/'+id, data, { headers: this.header});
   }
 

@@ -14,7 +14,7 @@ export const appRoutes: Routes = [
     { path : 'home', component : HomepageComponent },
     { path : 'ticket', component : TicketpageComponent },
     { path : 'newticket', component : NewticketComponent },
-    { path : 'profile', component : ProfileComponent },   
+    { path : 'profile', component : ProfileComponent },
     { path : '', redirectTo : '/home', pathMatch : 'full' }
 ];
 
