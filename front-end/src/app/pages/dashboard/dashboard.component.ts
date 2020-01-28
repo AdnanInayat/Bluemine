@@ -11,7 +11,7 @@ export class DashboardComponent implements OnInit {
   constructor(private ticketServie: NewticketService) { }
 
   ngOnInit() {
-    this.getTicketByIdFn(1);
+    //this.getTicketByIdFn(1);
   }
 
   getTicketByIdFn(id: any) {

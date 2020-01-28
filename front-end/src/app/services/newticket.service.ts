@@ -19,7 +19,7 @@ export class NewticketService extends AuthmainService {
     if (typeof ticket.assignedToUserId !== 'undefined' && typeof ticket.assignedToUserId === 'string') {
       ticket.assignedToUserId = parseInt(ticket.assignedToUserId);
     }
-    return this.http.post<any>(this.url, ticket, { headers: this.header });
+    return this.http.post<any>(this.url , ticket, { headers: this.header });
   }
 
   getTicketById(id: any) {
