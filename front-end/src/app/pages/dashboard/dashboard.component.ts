@@ -9,17 +9,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private ticketServie: NewticketService, private router: Router) { }
+  tickets: any = [];
+  constructor(private ticketServie: NewticketService) { }
 
   ngOnInit() {
-    this.getTicketByIdFn(1);
+    this.getAllTickets();
   }
 
-  getTicketByIdFn(id: any) {
-    // const id = 1;
-    this.ticketServie.getTicketById(id).subscribe(data => {
+  getAllTickets() {
+    this.ticketServie.getTickets().subscribe(data => {
+      this.tickets = data;
       console.log('Ticket Detail: ' + JSON.stringify(data));
-      // this.router.nav
     });
   }
 }

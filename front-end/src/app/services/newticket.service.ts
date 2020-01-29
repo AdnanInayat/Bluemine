@@ -15,11 +15,10 @@ export class NewticketService extends AuthmainService {
   }
 
   newTicket(ticket: any) {
-    this.url += 'ticket';
     if (typeof ticket.assignedToUserId !== 'undefined' && typeof ticket.assignedToUserId === 'string') {
       ticket.assignedToUserId = parseInt(ticket.assignedToUserId);
     }
-    return this.http.post<any>(this.url, ticket, { headers: this.header });
+    return this.http.post<any>(this.url + 'ticket/', ticket, { headers: this.header });
   }
 
   getTicketById(id: any) {
@@ -31,6 +30,11 @@ export class NewticketService extends AuthmainService {
       comment.userId = parseInt(comment.userId, null);
     }
     console.log('Comment::::::' + JSON.stringify(comment));
-    return this.http.post<any>(this.url + 'comments', comment, {headers: this.header});
+    return this.http.post<any>(this.url + 'comments', comment, { headers: this.header });
+  }
+
+  getTickets() {
+    return this.http.get<any>(this.url + 'ticket/', { headers: this.header });
   }
 }
+
