@@ -77,21 +77,25 @@ export class tUser extends Entity {
 
   @property({
     type: 'boolean',
+    default: 1,
   })
   active?: boolean;
 
   @property({
     type: 'boolean',
+    default: 0,
   })
   isAdmin: boolean;
 
   @property({
     type: 'date',
+    default: new Date(),
   })
   created_at?: string;
 
   @property({
     type: 'date',
+    default: new Date(),
   })
   updated_at?: string;
 

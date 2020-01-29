@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewticketService } from 'src/app/services/newticket.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,8 +8,8 @@ import { NewticketService } from 'src/app/services/newticket.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-    
-  tickets: any = []
+
+  tickets: any = [];
   constructor(private ticketServie: NewticketService) { }
 
   ngOnInit() {
