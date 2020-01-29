@@ -12,9 +12,9 @@ export const appRoutes: Routes = [
     { path : 'register', component : RegisterComponent },
     { path : 'dashboard', component : DashboardComponent },
     { path : 'home', component : HomepageComponent },
-    { path : 'ticket', component : TicketpageComponent },
+    { path : 'ticket/:id', component : TicketpageComponent },
     { path : 'newticket', component : NewticketComponent },
-    { path : 'profile', component : ProfileComponent },   
+    { path: 'profile', component: ProfileComponent },
     { path : '', redirectTo : '/home', pathMatch : 'full' }
 ];
 

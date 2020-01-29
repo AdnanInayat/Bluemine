@@ -19,11 +19,13 @@ export class TComment extends Entity {
 
   @property({
     type: 'date',
+    default: new Date(),
   })
   created_at?: Date;
 
   @property({
     type: 'date',
+    default: new Date(),
   })
   updated_at?: Date;
 

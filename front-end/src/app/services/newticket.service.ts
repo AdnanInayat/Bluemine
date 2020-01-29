@@ -25,4 +25,12 @@ export class NewticketService extends AuthmainService {
   getTicketById(id: any) {
     return this.http.get<any>(this.url + 'ticket/' + id, { headers: this.header });
   }
+
+  postCommentService(comment: any) {
+    if (typeof comment.userId !== 'undefined' && typeof comment.userId === 'string') {
+      comment.userId = parseInt(comment.userId, null);
+    }
+    console.log('Comment::::::' + JSON.stringify(comment));
+    return this.http.post<any>(this.url + 'comments', comment, {headers: this.header});
+  }
 }
