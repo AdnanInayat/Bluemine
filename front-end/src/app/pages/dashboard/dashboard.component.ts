@@ -18,7 +18,10 @@ export class DashboardComponent implements OnInit {
 
   getAllTickets() {
     this.ticketServie.getTickets().subscribe(data => {
-      this.tickets = data;
+      this.tickets  = data;
+      this.tickets.reverse();
+      
+
       console.log('Ticket Detail: ' + JSON.stringify(data));
     });
   }
