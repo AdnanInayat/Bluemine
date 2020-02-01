@@ -7,6 +7,7 @@ import { NewticketComponent } from './pages/newticket/newticket.component';
 import { AppComponent } from './app.component';
 import { ModuleWithProviders } from '@angular/core';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { MainpageComponent } from './pages/mainpage/mainpage.component';
 
 export const appRoutes: Routes = [
     { path : 'register', component : RegisterComponent },
@@ -15,6 +16,7 @@ export const appRoutes: Routes = [
     { path : 'ticket/:id', component : TicketpageComponent },
     { path : 'newticket', component : NewticketComponent },
     { path: 'profile', component: ProfileComponent },
+    { path: 'mainpage', component: MainpageComponent },
     { path : '', redirectTo : '/home', pathMatch : 'full' }
 ];
 

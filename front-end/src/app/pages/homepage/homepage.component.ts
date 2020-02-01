@@ -41,7 +41,7 @@ export class HomepageComponent implements OnInit {
 
            
       // console.log('token from local storage', localStorage.userToken);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/mainpage']);
       // this.router.navigateByUrl('/dashboard');
       
     },
