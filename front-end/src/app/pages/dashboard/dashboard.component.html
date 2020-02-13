@@ -1,4 +1,4 @@
-<div class="card mt-3" *ngFor="let ticket of tickets; let i = index">
+<div class="card mt-3" (click)="test(ticket.id)" *ngFor="let ticket of tickets; let i = index">
     <div class="row">
         <div class=" card-body col col-md-1">
             <h5>{{i+1}}</h5>

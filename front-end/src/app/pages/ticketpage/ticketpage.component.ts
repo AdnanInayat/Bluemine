@@ -39,9 +39,12 @@ export class TicketpageComponent implements OnInit {
   postComment() {
     this.comment.ticketId = this.data$.id;
     this.comment.userId = localStorage.getItem('userId');
-    console.log('Comment: ' + JSON.stringify(this.comment));
+    // console.log('Comment: ' + JSON.stringify(this.comment));
     this.ticket.postCommentService(this.comment).subscribe(data => {
-      console.log('Comment posted. ' + data);
+      // console.log('Comment posted. ' + JSON.stringify(data));
+      this.data$.comments.push(data);
+      console.log('Comments. ' + JSON.stringify(this.data$.comments));
+      this.comment.body = '';
     });
   }
 }

@@ -49,23 +49,24 @@
   <div class="com">
     <div class="comHeading">Comments</div>
 
-    <div class="card-body row cardCom">
+    <div class="card-body row cardCom" *ngFor="let comment of data$.comments">
       <div class="col-lg-1">
-        <Button class="btn btn-user-profile">A</Button>
+        <Button class="btn btn-user-profile">{{comment.userId}}</Button>
       </div>
       <div class="col-lg-10">
-        <p>Currently, the product list displays the name and description of each product.</p>
+        <p>{{comment.body}}</p>
+        <!-- <p>Currently, the product list displays the name and description of each product.</p> -->
       </div>
     </div>
 
-    <div class="card-body row cardCom">
+    <!-- <div class="card-body row cardCom">
       <div class="col-lg-1">
         <Button class="btn btn-user-profile">A</Button>
       </div>
       <div class="col-lg-10">
         <span>Currently, the product list displays the name and description of each product.</span>
       </div>
-    </div>
+    </div> -->
 
     <form (ngSubmit)="postComment()">
       <div class="form-group" id="write-com">
