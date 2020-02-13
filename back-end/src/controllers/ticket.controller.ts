@@ -97,6 +97,8 @@ export class TicketController {
     return this.ticketRepository.find(filter);
   }
 
+  // {include:[{relation:'comments'}]}
+
   @patch('/ticket', {
     responses: {
       '200': {
@@ -132,12 +134,13 @@ export class TicketController {
       },
     },
   })
-  @authenticate('jwt')
+  // @authenticate('jwt')
   async findById(
     @param.path.number('id') id: number,
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>
   ): Promise<tTicket> {
     return this.ticketRepository.findById(id, filter);
+    // {include:[{relation:'comments', scope:{skip:0,limit:5}}]}
   }
 
   @patch('/ticket/{id}', {

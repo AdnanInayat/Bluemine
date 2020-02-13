@@ -22,7 +22,7 @@ export class NewticketService extends AuthmainService {
   }
 
   getTicketById(id: any) {
-    return this.http.get<any>(this.url + 'ticket/' + id, { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/' + id + '/?filter[include][][relation]=comments', { headers: this.header });
   }
 
   postCommentService(comment: any) {
@@ -34,7 +34,7 @@ export class NewticketService extends AuthmainService {
   }
 
   getTickets() {
-    return this.http.get<any>(this.url + 'ticket/', { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/?filter[include][][relation]=comments', { headers: this.header });
   }
 }
 

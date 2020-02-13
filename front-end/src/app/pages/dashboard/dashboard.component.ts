@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 export class DashboardComponent implements OnInit {
 
   tickets: any = [];
-  constructor(private ticketServie: NewticketService) { }
+  constructor(private ticketServie: NewticketService, private router: Router) { }
 
   ngOnInit() {
     this.getAllTickets();
@@ -19,7 +19,13 @@ export class DashboardComponent implements OnInit {
   getAllTickets() {
     this.ticketServie.getTickets().subscribe(data => {
       this.tickets = data;
+      console.log('related comments : ' + this.tickets.comments);
       console.log('Ticket Detail: ' + JSON.stringify(data));
     });
+  }
+
+  test(id) {
+    this.router.navigate(['ticket/' + id]);
+    console.log( id);
   }
 }
