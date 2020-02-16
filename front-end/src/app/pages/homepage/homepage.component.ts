@@ -12,10 +12,14 @@ import { AppComponent } from 'src/app/app.component';
 export class HomepageComponent implements OnInit {
 
   model: any = {};
-  isLoginError: boolean = false;
+  isLoginError = false;
   isLogged: boolean;
 
-  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute, private appComp: AppComponent, ) {
+  constructor(
+    private homepageservice: HomepageService,
+    private router: Router,
+    private route: ActivatedRoute,
+    private appComp: AppComponent, ) {
     // var token = localStorage.getItem('userToken');
     // if(typeof token !== 'undefined' && token !== null){
     //   this.isLogged = true;
@@ -26,7 +30,7 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
-    // localStorage.clear(); 
+    // localStorage.clear();
     if (localStorage.length !== 0) {
       this.router.navigate(['/dashboard']);
     }
