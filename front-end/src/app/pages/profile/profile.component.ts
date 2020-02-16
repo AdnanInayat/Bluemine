@@ -19,16 +19,13 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
     this.getUserProfile();
-
-    
-    
   }
 
 
-  getUserProfile(){
-    this.userService.userProfile().subscribe((data)=>{
+  getUserProfile() {
+    this.userService.userProfile().subscribe((data) => {
       console.log("user data from db", data);
-      
+
       // this.userData = data;
       // var udata = Object.values(data);
       this.model = data;
@@ -46,16 +43,16 @@ export class ProfileComponent implements OnInit {
       //   country : ["", [Validators.required]]      
       // });
 
-           
-    });    
+
+    });
   }
 
 
-  updUserUProfile(){
+  updUserUProfile() {
     // console.log(this.model);
     // var id = localStorage.getItem(userId);
-    console.log(this.model);    
-    this.userService.updateProfile(this.model).subscribe((data)=>{
+    console.log(this.model);
+    this.userService.updateProfile(this.model).subscribe((data) => {
       console.log(this.model);
 
     });

@@ -11,23 +11,26 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Bluemine';
   isLogged = false;
-  constructor(){
+  constructor() {
     var token = localStorage.getItem('userToken');
-    if(typeof token !== 'undefined' && token !== null){
-      this.isLogged = true;      
+    if (typeof token !== 'undefined' && token !== null) {
+      this.isLogged = true;
     }
-    else{
-      this.isLogged = false;      
-    }        
-    
+    else {
+      this.isLogged = false;
+    }
+
   }
 
-  logout(){
-    localStorage.clear(); 
+  logout() {
+    localStorage.clear();
     this.isLogged = false;
-  } 
-  
-  
+  }
+
+  // OnDestroy() {
+  //   localStorage.removeItem('userToken');
+  // }
+
 }
 
 
