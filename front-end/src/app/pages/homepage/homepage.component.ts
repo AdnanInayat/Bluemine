@@ -15,7 +15,7 @@ export class HomepageComponent implements OnInit {
   isLoginError: boolean = false;
   isLogged: boolean;
 
-  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute, private appComp: AppComponent,) {
+  constructor(private homepageservice: HomepageService, private router: Router, private route: ActivatedRoute, private appComp: AppComponent, ) {
     // var token = localStorage.getItem('userToken');
     // if(typeof token !== 'undefined' && token !== null){
     //   this.isLogged = true;
@@ -27,6 +27,9 @@ export class HomepageComponent implements OnInit {
 
   ngOnInit() {
     // localStorage.clear(); 
+    if (localStorage.length !== 0) {
+      this.router.navigate(['/dashboard']);
+    }
   }
 
   login() {
@@ -34,16 +37,16 @@ export class HomepageComponent implements OnInit {
       // console.log(data);
       localStorage.setItem('userToken', data.token);
       localStorage.setItem('userId', data.userId);
-      
-      console.log(localStorage);      
+
+      console.log(localStorage);
       // console.log("user token: ", localStorage.userToken);
       // console.log("user ID: ", localStorage.userID);
 
-           
+
       // console.log('token from local storage', localStorage.userToken);
       this.router.navigate(['/dashboard']);
       // this.router.navigateByUrl('/dashboard');
-      
+
     },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
