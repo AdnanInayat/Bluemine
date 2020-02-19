@@ -11,7 +11,9 @@ export class DashboardComponent implements OnInit {
 
   tickets: any = [];
   constructor(private ticketServie: NewticketService, private router: Router) { }
-
+//1. access specifier -> private, public, protected
+//2. name of variable (ticketService)
+//3. type of variable (NewticketService)
   ngOnInit() {
     this.getAllTickets();
     this.getTicketsCount();
@@ -25,6 +27,7 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+  
   test(id) {
     this.router.navigate(['ticket/' + id]);
     console.log( id);

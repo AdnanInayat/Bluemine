@@ -42,7 +42,7 @@ export class TicketpageComponent implements OnInit {
     this.comment.userId = localStorage.getItem('userId');
     if (this.ticket$.comments === undefined) {
       console.log('true : not defined');
-      this.ticket$.setItem('comment', this.comment);
+      this.ticket$.comments.setItem('comment', this.comment);
     } else {
       console.log('true : defined');
     }
