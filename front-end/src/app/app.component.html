@@ -1,8 +1,8 @@
 <div class="d-flex" id="wrapper">
 
   <!-- Sidebar -->
-  <div class="bg-light border-right bg-sidebar-color" id="sidebar-wrapper">
-    <div class="sidebar-heading"> Bluemine </div>
+  <div *ngIf= "checkLogin()" class="bg-light border-right bg-sidebar-color" id="sidebar-wrapper">
+    <div class="sidebar-heading"> Bluemine {{checkLogin()}}</div>
     <div class="list-group list-group-flush bg-sidebar-color">
       <a [routerLink]="['dashboard']" routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Dashboard</a>
@@ -20,9 +20,9 @@
   <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
-  <div id="page-content-wrapper">
+  <div id="page-content-wrapper" >
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom bg-nav-color">
+    <nav *ngIf= "checkLogin()" class="navbar navbar-expand-lg navbar-light bg-light border-bottom bg-nav-color">
       <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
 
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

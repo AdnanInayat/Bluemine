@@ -13,15 +13,10 @@ export class AuthmainService {
 
   constructor() {
     this.url = 'http://localhost:5000/';
-    this.token = localStorage.getItem("userToken");
+    this.token = localStorage.getItem('userToken');
     const headerSettings: { [name: string]: string | string[]; } = {};
     this.header = new HttpHeaders(headerSettings);
-    this.header = this.header.append("Authorization", "Bearer " + this.token);
-  }
-
-  onDistroy() {
-    localStorage = null;
-    console.log('Distroying it');
+    this.header = this.header.append('Authorization', 'Bearer ' + this.token);
   }
 
 }
