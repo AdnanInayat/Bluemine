@@ -62,7 +62,7 @@ export class TicketController {
   }
 
   @get('/ticket/count', {
-    security: OPERATION_SECURITY_SPEC,
+    // security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {
         description: 'tTicket model count',
@@ -70,7 +70,7 @@ export class TicketController {
       },
     },
   })
-  @authenticate('jwt')
+  // @authenticate('jwt')
   async count(
     @param.query.object('where', getWhereSchemaFor(tTicket)) where?: Where<tTicket>,
   ): Promise<Count> {
@@ -78,7 +78,7 @@ export class TicketController {
   }
 
   @get('/ticket', {
-    security: OPERATION_SECURITY_SPEC,
+    // security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {
         description: 'Array of tTicket model instances',
@@ -93,7 +93,7 @@ export class TicketController {
       },
     },
   })
-  @authenticate('jwt')
+  // @authenticate('jwt')
   async find(
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>,
   ): Promise<tTicket[]> {

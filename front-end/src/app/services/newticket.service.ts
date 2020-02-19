@@ -34,8 +34,30 @@ export class NewticketService extends AuthmainService {
   }
 
   getTickets() {
-    return this.http.get<any>(this.url + 'ticket/?filter[include][][relation]=comments', { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/', { headers: this.header });
   }
+
+  getCompleteTicket(){
+      return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Completed', { headers: this.header});
+
+  }
+
+  getProcessingTicket(){
+     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Processing', { headers: this.header});
+
+}
+   getNewTicket(){
+    return this.http.get<any>(this.url+ 'ticket?filter[where][status]=New', { headers: this.header});
+
+}
+
+    getTestingTicket(){
+     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Testing', { headers: this.header});
+
+}
+
+
+ 
 
   getTicketsCountService() {
     return this.http.get<any>(this.url + 'ticket/count', { headers: this.header });
