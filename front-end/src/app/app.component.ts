@@ -22,6 +22,14 @@ export class AppComponent {
 
   }
 
+  checkLogin() {
+    if (localStorage.length === 2) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
   logout() {
     localStorage.clear();
     this.isLogged = false;

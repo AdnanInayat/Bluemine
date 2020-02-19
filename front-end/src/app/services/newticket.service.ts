@@ -36,5 +36,10 @@ export class NewticketService extends AuthmainService {
   getTickets() {
     return this.http.get<any>(this.url + 'ticket/?filter[include][][relation]=comments', { headers: this.header });
   }
+
+  getTicketsCountService() {
+    return this.http.get<any>(this.url + 'ticket/count', { headers: this.header });
+  }
+
 }
 

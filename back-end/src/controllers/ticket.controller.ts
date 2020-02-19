@@ -22,6 +22,7 @@ import {TicketRepository} from '../repositories';
 import {UserProfile, securityId, SecurityBindings} from '@loopback/security';
 import { authenticate } from '@loopback/authentication';
 import { inject } from '@loopback/core';
+import { OPERATION_SECURITY_SPEC } from '../utils/security-spec';
 
 export class TicketController {
   constructor(
@@ -61,6 +62,7 @@ export class TicketController {
   }
 
   @get('/ticket/count', {
+    security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {
         description: 'tTicket model count',
@@ -76,6 +78,7 @@ export class TicketController {
   }
 
   @get('/ticket', {
+    security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {
         description: 'Array of tTicket model instances',
@@ -90,7 +93,7 @@ export class TicketController {
       },
     },
   })
-  // @authenticate('jwt')
+  @authenticate('jwt')
   async find(
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>,
   ): Promise<tTicket[]> {
@@ -123,6 +126,7 @@ export class TicketController {
   }
 
   @get('/ticket/{id}', {
+    security: OPERATION_SECURITY_SPEC,
     responses: {
       '200': {
         description: 'tTicket model instance',
@@ -134,7 +138,7 @@ export class TicketController {
       },
     },
   })
-  // @authenticate('jwt')
+  @authenticate('jwt')
   async findById(
     @param.path.number('id') id: number,
     @param.query.object('filter', getFilterSchemaFor(tTicket)) filter?: Filter<tTicket>

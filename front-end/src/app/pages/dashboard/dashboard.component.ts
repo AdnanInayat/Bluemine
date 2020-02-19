@@ -14,6 +14,7 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTickets();
+    this.getTicketsCount();
   }
 
   getAllTickets() {
@@ -27,5 +28,11 @@ export class DashboardComponent implements OnInit {
   test(id) {
     this.router.navigate(['ticket/' + id]);
     console.log( id);
+  }
+
+  getTicketsCount() {
+    this.ticketServie.getTicketsCountService().subscribe(total => {
+      console.log('Total tickets are : ' + JSON.stringify(total));
+    });
   }
 }
