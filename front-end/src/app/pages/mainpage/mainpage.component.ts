@@ -10,11 +10,12 @@ export class MainpageComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    this.dashBoard();
   }
 
   isLogged = false
-  
-  dashboard = true;
+
+  dashboard = false;
   nticket = false;
   inProTicket = false;
   compTicket = false;

@@ -34,7 +34,7 @@ export class NewticketComponent implements OnInit {
     this.newticketService.newTicket(this.model).subscribe((data: any) => {
       console.log(data);      
       // console.log('token from local storage', localStorage.userToken);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/mainpage']);
     }
     );
   }
