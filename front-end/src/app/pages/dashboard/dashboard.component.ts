@@ -26,6 +26,35 @@ export class DashboardComponent implements OnInit {
       console.log('Ticket Detail: ' + JSON.stringify(data));
     });
   }
+  getCompleteTicket() {
+    this.ticketServie.getCompleteTicket().subscribe(data => {
+      this.tickets = data;
+      console.log('Comppleting Tickets ' + JSON.stringify(data));
+    });
+  }
+
+  
+  getProcessingTicket() {
+    this.ticketServie.getProcessingTicket().subscribe(data => {
+      this.tickets = data;
+      console.log('Processing Ticket  ' + JSON.stringify(data));
+    });
+  }
+
+   
+  getNewTicket() {
+    this.ticketServie.getNewTicket().subscribe(data => {
+      this.tickets = data;
+      console.log('New Tickets' + JSON.stringify(data));
+    });
+  }
+
+  getTestingTicket() {
+    this.ticketServie.getTestingTicket().subscribe(data => {
+      this.tickets = data;
+      console.log('Testing Tickets ' + JSON.stringify(data));
+    });
+  }
 
   
   test(id) {
@@ -38,4 +67,4 @@ export class DashboardComponent implements OnInit {
       console.log('Total tickets are : ' + JSON.stringify(total));
     });
   }
-}
+} 
