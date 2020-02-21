@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NewticketService } from 'src/app/services/newticket.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,10 +19,25 @@ export class DashboardComponent implements OnInit {
 
   tickets: any = [];
 
-  constructor(private ticketServie: NewticketService, private router: Router) { }
+  constructor(private ticketServie: NewticketService, private route: ActivatedRoute, private router: Router) { }
   ngOnInit() {
-    this.getAllTickets();
-    this.getTicketsCount();
+    const type = this.route.snapshot.paramMap.get('type');
+    console.log("clicked on : " + type);
+    if (type==="New") 
+    this.getNewTicket();
+    else if(type==="InProcess")
+    this.getProcessingTicket();
+    else if (type==="Testing")
+    this.getTestingTicket();
+    else if (type==="Completed")
+    this.getCompleteTicket();
+    else if (type==="Cancelled")
+    this.getCancelledTicket();
+
+    else{
+      this.getAllTickets();
+      this.getTicketsCount();
+    }
   }
 
   getAllTickets() {
@@ -39,9 +54,16 @@ export class DashboardComponent implements OnInit {
     });
   }
 
+getCancelledTicket() {
+    this.ticketServie.getCancelledTicket().subscribe(data => {
+      this.tickets = data;
+      console.log('Cancelled Tickets ' + JSON.stringify(data));
+    });
+  }
+
   
   getProcessingTicket() {
-    this.ticketServie.getProcessingTicket().subscribe(data => {
+    this.ticketServie.getInProcessTicket().subscribe(data => {
       this.tickets = data;
       console.log('Processing Ticket  ' + JSON.stringify(data));
     });
@@ -54,7 +76,20 @@ export class DashboardComponent implements OnInit {
       console.log('New Tickets' + JSON.stringify(data));
     });
   }
-
+   
+  getABMTicket(id) {
+    this.ticketServie.getABMTicket(id).subscribe(data => {
+      this.tickets = data;
+      console.log('Processing Ticket  ' + JSON.stringify(data));
+    });
+  }
+  
+  getATMTicket(id) {
+    this.ticketServie.getATMTicket(id).subscribe(data => {
+      this.tickets = data;
+      console.log('Processing Ticket  ' + JSON.stringify(data));
+    });
+  }
   getTestingTicket() {
     this.ticketServie.getTestingTicket().subscribe(data => {
       this.tickets = data;

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -11,7 +12,7 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Bluemine';
   isLogged = false;
-  constructor() {
+  constructor(private router: Router) {
     var token = localStorage.getItem('userToken');
     if (typeof token !== 'undefined' && token !== null) {
       this.isLogged = true;
@@ -33,6 +34,11 @@ export class AppComponent {
   logout() {
     localStorage.clear();
     this.isLogged = false;
+  }
+
+  ticketType(tType) {
+    this.router.navigate(['dashboard/'+tType]);
+    console.log(tType);
   }
 
   // OnDestroy() {

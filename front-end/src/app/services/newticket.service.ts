@@ -25,6 +25,14 @@ export class NewticketService extends AuthmainService {
     return this.http.get<any>(this.url + 'ticket/' + id + '/?filter[include][][relation]=comments', { headers: this.header });
   }
 
+  getABMTicket(id: any) {
+    return this.http.get<any>(this.url + 'ticket/' + 'ticket?filter[where][assignedByUserId]='+ id , { headers: this.header });
+  }
+
+  getATMTicket(id: any) {
+    return this.http.get<any>(this.url + 'ticket/' + + 'ticket?filter[where][assignedToUserId]='+ id , { headers: this.header });
+  }
+
   postCommentService(comment: any) {
     if (typeof comment.userId !== 'undefined' && typeof comment.userId === 'string') {
       comment.userId = parseInt(comment.userId, null);
@@ -42,8 +50,12 @@ export class NewticketService extends AuthmainService {
 
   }
 
-  getProcessingTicket(){
-     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Processing', { headers: this.header});
+  getCancelledTicket(){
+    return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Cancelled', { headers: this.header});
+
+}
+  getInProcessTicket(){
+     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=InProcess', { headers: this.header});
 
 }
    getNewTicket(){
