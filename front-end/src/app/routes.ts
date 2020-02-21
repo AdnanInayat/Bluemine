@@ -11,6 +11,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
 export const appRoutes: Routes = [
     { path : 'register', component : RegisterComponent },
     { path : 'dashboard', component : DashboardComponent },
+    { path : 'dashboard/:type', component : DashboardComponent },
     { path : 'home', component : HomepageComponent },
     { path : 'ticket/:id', component : TicketpageComponent },
     { path : 'newticket', component : NewticketComponent },

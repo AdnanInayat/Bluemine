@@ -8,10 +8,13 @@
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Dashboard</a>
       <a [routerLink]="['newticket']" routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Create Ticket</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">In Process Tickets</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Completed Tickets</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned By Me</a>
-      <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned To Me</a>
+      <a [routerLink]="['dashboard/New']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">New Tickets</a>
+      <a [routerLink]="['dashboard/InProcess']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">In Process Tickets</a>
+      <a [routerLink]="['dashboard/Testing']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Testing Tickets</a>
+      <a [routerLink]="['dashboard/Completed']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Completed Tickets</a>
+      <a [routerLink]="['dashboard/Cancelled']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Cancelled Tickets</a>
+      <a [routerLink]="['dashboard/ABM']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned By Me</a>
+      <a [routerLink]="['dashboard/ATM']" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned To Me</a>
       <a [routerLink]="['/profile']" routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
       <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Status</a>
