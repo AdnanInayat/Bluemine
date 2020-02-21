@@ -9,11 +9,17 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
+  title = 'App';
+  // public pieChartLabels: string[] = ['Pending', 'InProgress', 'OnHold', 'Completed', 'Cancelled'];
+  public pieChartLabels: string[] = ['New', 'InProgress', 'Testing', 'Completed', 'Cancelled'];
+  public pieChartData: number[] = [21, 39, 10, 14, 16];
+  public pieChartType: string = 'pie';
+  public pieChartOptions = [{ backgroundColor: ['#17A2B8', '#FFC107', '#6C757D', '#28A745', '#DC3545'] }];
+
+
   tickets: any = [];
+
   constructor(private ticketServie: NewticketService, private router: Router) { }
-//1. access specifier -> private, public, protected
-//2. name of variable (ticketService)
-//3. type of variable (NewticketService)
   ngOnInit() {
     this.getAllTickets();
     this.getTicketsCount();
@@ -56,10 +62,10 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-  
+
   test(id) {
     this.router.navigate(['ticket/' + id]);
-    console.log( id);
+    console.log(id);
   }
 
   getTicketsCount() {
@@ -67,4 +73,14 @@ export class DashboardComponent implements OnInit {
       console.log('Total tickets are : ' + JSON.stringify(total));
     });
   }
-} 
+
+  // events on slice click
+  public chartClicked(e: any): void {
+    console.log(e);
+  }
+
+  // event on pie chart slice hover
+  public chartHovered(e: any): void {
+    console.log(e);
+  }
+}
