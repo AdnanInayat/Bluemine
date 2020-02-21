@@ -14,6 +14,8 @@ import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, Ma
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 import { NewticketComponent } from './pages/newticket/newticket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ChartsModule, Color } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -29,6 +31,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
+    ChartsModule,
     ReactiveFormsModule,
     MatInputModule,
     BrowserAnimationsModule,
