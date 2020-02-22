@@ -16,7 +16,6 @@ import { NewticketComponent } from './pages/newticket/newticket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ChartsModule, Color } from 'ng2-charts';
 
-
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +24,7 @@ import { ChartsModule, Color } from 'ng2-charts';
     DashboardComponent,
     TicketpageComponent,
     NewticketComponent,
-    ProfileComponent
+    ProfileComponent    
   ],
   imports: [
     BrowserModule,

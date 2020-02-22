@@ -10,15 +10,11 @@
 
         <!-- Login Form -->
         <form #loginForm="ngForm" (ngSubmit)="login()">
-            <div class="form-group">
-                <input type="email" id="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" class="fadeIn second form-control" [(ngModel)]="model.email" name="email" placeholder="Email">
-                <div [class.d-none]="email.valid || email.untouched" class="text-danger"> * Email is required. </div>
-            </div>
-            <!-- {{name.untouched}} -->
-            <div class="form-group">
-                <input type="password" id="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required class="fadeIn third form-control" [(ngModel)]="model.password" name="password" placeholder="Password">
-                <div [class.d-none]="password.valid || password.untouched" class="text-danger"> * Password is required. </div>
-            </div>
+            <input type="email" id="email" required #email="ngModel" [class.is-invalid]="email.invalid && email.touched" class="fadeIn second form-control" [(ngModel)]="model.email" name="email" placeholder="Email">
+            <div [class.d-none]="email.valid || email.untouched" class="text-danger"> * Email is required. </div>
+
+            <input type="password" id="password" #password="ngModel" [class.is-invalid]="password.invalid && password.touched" required class="fadeIn third form-control" [(ngModel)]="model.password" name="password" placeholder="Password">
+            <div [class.d-none]="password.valid || password.untouched" class="text-danger"> * Password is required. </div>
             <input type="submit" class="fadeIn fourth" value="Log In">
         </form>
 
