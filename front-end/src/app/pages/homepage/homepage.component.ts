@@ -3,6 +3,7 @@ import { HomepageService } from '../../services/homepage.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { AppComponent } from 'src/app/app.component';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-homepage',
@@ -14,7 +15,8 @@ export class HomepageComponent implements OnInit {
   model: any = {};
   isLoginError = false;
   isLogged: boolean;
-
+  errors:any = {};
+  
   constructor(
     private homepageservice: HomepageService,
     private router: Router,
@@ -34,9 +36,28 @@ export class HomepageComponent implements OnInit {
     if (localStorage.length !== 0) {
       this.router.navigate(['/dashboard']);
     }
+
+    // this.loginForm = new FormGroup({
+    //   'email' : new FormControl
+      
+
+    // })
+
   }
 
   login() {
+    // if(this.model.email==null){
+    //   this.errors.email = true;
+    //   this.errors.password = false;
+    //   console.log('login email error');
+    //   return
+    // }
+    // if(this.model.password==null){
+    //   this.errors.password = true;
+    //   this.errors.email = false;
+    //   console.log('login password error');
+    //   return
+    // }
     this.homepageservice.Login(this.model).subscribe((data: any) => {
       // console.log(data);
       localStorage.setItem('userToken', data.token);
