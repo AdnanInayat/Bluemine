@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'Bluemine';
   isLogged = false;
+  public ttype = "";
   constructor(private router: Router) {
     var token = localStorage.getItem('userToken');
     if (typeof token !== 'undefined' && token !== null) {
@@ -38,7 +39,7 @@ export class AppComponent {
 
   ticketType(tType) {
     this.router.navigate(['dashboard/'+tType]);
-    console.log(tType);
+    this.ttype = this.ttype;
   }
 
   // OnDestroy() {

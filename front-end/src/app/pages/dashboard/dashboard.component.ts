@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewticketService } from 'src/app/services/newticket.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AppComponent } from 'src/app/app.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -19,22 +20,37 @@ export class DashboardComponent implements OnInit {
 
   tickets: any = [];
 
-  constructor(private ticketServie: NewticketService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private ticketServie: NewticketService,
+    private route: ActivatedRoute, private router: Router) {
+    router.events.subscribe((val : any) => {
+      if(typeof(val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0){
+        var url = val.url.split('/')[1];
+        this.type = url;
+        this.getData();
+      }
+    });
+  }
+  private type: string = "";
   ngOnInit() {
-    const type = this.route.snapshot.paramMap.get('type');
-    console.log("clicked on : " + type);
-    if (type==="New") 
-    this.getNewTicket();
-    else if(type==="InProcess")
-    this.getProcessingTicket();
-    else if (type==="Testing")
-    this.getTestingTicket();
-    else if (type==="Completed")
-    this.getCompleteTicket();
-    else if (type==="Cancelled")
-    this.getCancelledTicket();
-
-    else{
+    this.type = this.route.snapshot.paramMap.get('type');
+    this.getData();
+  }
+  setType(type) {
+    this.type = type;
+  }
+  getData() {
+    console.log(this.type);
+    if (this.type === "New")
+      this.getNewTicket();
+    else if (this.type === "InProcess")
+      this.getProcessingTicket();
+    else if (this.type === "Testing")
+      this.getTestingTicket();
+    else if (this.type === "Completed")
+      this.getCompleteTicket();
+    else if (this.type === "Cancelled")
+      this.getCancelledTicket();
+    else {
       this.getAllTickets();
       this.getTicketsCount();
     }
@@ -54,14 +70,14 @@ export class DashboardComponent implements OnInit {
     });
   }
 
-getCancelledTicket() {
+  getCancelledTicket() {
     this.ticketServie.getCancelledTicket().subscribe(data => {
       this.tickets = data;
       console.log('Cancelled Tickets ' + JSON.stringify(data));
     });
   }
 
-  
+
   getProcessingTicket() {
     this.ticketServie.getInProcessTicket().subscribe(data => {
       this.tickets = data;
@@ -69,21 +85,21 @@ getCancelledTicket() {
     });
   }
 
-   
+
   getNewTicket() {
     this.ticketServie.getNewTicket().subscribe(data => {
       this.tickets = data;
       console.log('New Tickets' + JSON.stringify(data));
     });
   }
-   
+
   getABMTicket(id) {
     this.ticketServie.getABMTicket(id).subscribe(data => {
       this.tickets = data;
       console.log('Processing Ticket  ' + JSON.stringify(data));
     });
   }
-  
+
   getATMTicket(id) {
     this.ticketServie.getATMTicket(id).subscribe(data => {
       this.tickets = data;
