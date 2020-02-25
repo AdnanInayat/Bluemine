@@ -19,15 +19,17 @@
             <div [class.d-none]="email.valid || email.untouched" class="text-danger"> * e-mail is required. </div>
             <input type="text" id="phone" class="fadeIn fourth form-control" [(ngModel)]="user.phone" name="phone" placeholder="Enter your phone number" required #phone="ngModel" [class.is-invalid]="phone.invalid && phone.touched">
             <div [class.d-none]="phone.valid || phone.untouched" class="text-danger"> * Phone no. is required. </div>
-            <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender">
+            <!-- <select id="gender" class="fadeIn fifth" id="formSelect" [(ngModel)]="user.gender">
         <option selected="Gender" class="inputField"> Gender </option>
-        <option class="inputField">Male</option>
+        <option class="inputField" name="gender">Male</option>
         <option class="inputField">Female</option>
         <option class="inputField">Other</option>
-      </select>
+      </select> -->
+            <input type="text" id="gender" class="fadeIn fifth form-control" [(ngModel)]="user.gender" name="gender" placeholder="Enter your gender" required #gender="ngModel" [class.is-invalid]="gender.invalid && gender.touched">
+            <div [class.d-none]="gender.valid || gender.untouched" class="text-danger"> * gender is required. </div>
             <input type="password" id="password" minlength="8" class="fadeIn sixth form-control" [(ngModel)]="user.password" name="password" placeholder="Password" required #password="ngModel" [class.is-invalid]="password.invalid && password.touched">
             <div [class.d-none]="password.valid || password.untouched" class="text-danger"> * password should be atleast 8 characters long </div>
-            <input type="text" id="rPassword" minlength="8" class="fadeIn seventh form-control" name="rPassword" placeholder="Repeat Password" required>
+            <input type="password" id="rPassword" minlength="8" class="fadeIn seventh form-control" name="rPassword" placeholder="Repeat Password" required>
             
             <input type="submit" class="fadeIn eigth" value="Create Account">
         </form>

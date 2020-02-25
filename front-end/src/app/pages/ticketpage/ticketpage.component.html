@@ -27,14 +27,14 @@
         <Button class="btn btn-user-profile">A</Button>
       </div>
       <div class="col-lg-10 text-middle">
-        <b>Ticket Title: {{ticket$.title}}</b>
+        <b class="text-primary">Ticket Title: {{ticket$.title}}</b>
       </div>
     </div>
   </div>
 
   <div class="card cardDes">
     <div class="card-body">
-      <b>Description:</b>
+      <b class="text-secondary">Description:</b>
       <p>{{ticket$.description}}</p>
       <!-- <p>Currently, the product list displays the name and description of each product. The product list component also
         defines a products property that contains imported data for each product from the products array in products.ts.
@@ -69,7 +69,7 @@
   </div>
 
   <div class="com">
-    <div class="comHeading">Comments</div>
+    <div class="comHeading text-info font-weight-bold">Comments</div>
 
     <div class="card-body row cardCom" *ngFor="let comment of ticket$.comments">
       <div class="col-lg-1">

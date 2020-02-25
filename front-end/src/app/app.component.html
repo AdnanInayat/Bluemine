@@ -18,30 +18,30 @@
       <a [routerLink]="['profile']" routerLinkActive="router-link-active"
         class="action list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
       <!-- <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Status</a> -->
+        class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
 
-  <!-- Page Content -->
-  <div id="page-content-wrapper" >
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
 
-    <nav *ngIf= "checkLogin()" class="navbar navbar-expand-lg navbar-light bg-light border-bottom bg-nav-color">
-      <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
+            <nav *ngIf="checkLogin()" class="navbar navbar-expand-lg navbar-light bg-light border-bottom bg-nav-color">
+                <!-- <button class="btn btn-primary" id="menu-toggle">Toggle Menu</button> -->
 
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-          <li class="nav-item active">
-            <a class="nav-link bg-nav-opt-color" [routerLink]="['home']" routerLinkActive="router-link-active">Home <span
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                        <li class="nav-item active">
+                            <a class="nav-link bg-nav-opt-color" [routerLink]="['home']" routerLinkActive="router-link-active">Home <span
                 class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link bg-nav-opt-color" href="#">Alerts</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link bg-nav-opt-color" [routerLink]="['/home']" routerLinkActive="router-link-active"
                 (click)="logout()">Logout</a>
@@ -50,12 +50,12 @@
       </div>
     </nav>
 
-    <div class="container-fluid">
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-  <!-- /#page-content-wrapper -->
+            <div class="container-fluid">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
 
-</div>
-<!-- /#wrapper -->
-<!-- Menu Toggle Script -->
+    </div>
+    <!-- /#wrapper -->
+    <!-- Menu Toggle Script -->
