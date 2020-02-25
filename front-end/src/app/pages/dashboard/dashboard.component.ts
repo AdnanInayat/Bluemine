@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
     private route: ActivatedRoute, private router: Router) {
     router.events.subscribe((val : any) => {
       if(typeof(val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0){
-        var url = val.url.split('/')[1];
+        var url = val.url.split('/')[2];
         this.type = url;
         this.getData();
       }
@@ -39,7 +39,7 @@ export class DashboardComponent implements OnInit {
     this.type = type;
   }
   getData() {
-    console.log(this.type);
+    console.log('type::::::::::::::::::::' + this.type);
     if (this.type === "New")
       this.getNewTicket();
     else if (this.type === "InProcess")
