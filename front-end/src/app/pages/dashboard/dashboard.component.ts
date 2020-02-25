@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NewticketService } from 'src/app/services/newticket.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AppComponent } from 'src/app/app.component';
+import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,8 +22,8 @@ export class DashboardComponent implements OnInit {
 
   constructor(private ticketServie: NewticketService,
     private route: ActivatedRoute, private router: Router) {
-    router.events.subscribe((val : any) => {
-      if(typeof(val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0){
+    router.events.subscribe((val: any) => {
+      if (typeof (val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0) {
         var url = val.url.split('/')[2];
         this.type = url;
         this.getData();
@@ -134,4 +134,52 @@ export class DashboardComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
+
+  _New = [
+    'Get to work',
+    'Pick up groceries',
+    'Go home',
+    'Fall asleep'
+  ];
+
+  _InProcess = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+  _Testing = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+  _Complete = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+  _Cancel = [
+    'Get up',
+    'Brush teeth',
+    'Take a shower',
+    'Check e-mail',
+    'Walk dog'
+  ];
+
+  drop(event: CdkDragDrop<string[]>) {
+    if (event.previousContainer === event.container) {
+      moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
+    } else {
+      transferArrayItem(event.previousContainer.data,
+        event.container.data,
+        event.previousIndex,
+        event.currentIndex);
+    }
+  }
+
 }

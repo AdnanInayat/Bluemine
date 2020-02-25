@@ -15,6 +15,7 @@ import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 import { NewticketComponent } from './pages/newticket/newticket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ChartsModule, Color } from 'ng2-charts';
+import {DragDropModule} from '@angular/cdk/drag-drop';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ChartsModule, Color } from 'ng2-charts';
     MatBadgeModule,
     MatListModule,
     MatMenuModule,
+    DragDropModule,
     RouterModule.forRoot(appRoutes)
   ],
   exports: [
