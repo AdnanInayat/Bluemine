@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { RegisterUserService } from 'src/app/services/register-user.service';
 import { ProfileService } from 'src/app/services/profile.service';
+import { Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +17,7 @@ export class ProfileComponent implements OnInit {
 
   public userData: any[];
 
-  constructor(private userService: ProfileService, private formBuilder: FormBuilder) { }
+  constructor(private userService: ProfileService, private formBuilder: FormBuilder, private router: Router, ) { }
 
   ngOnInit() {
     this.getUserProfile();
@@ -55,6 +57,7 @@ export class ProfileComponent implements OnInit {
     this.userService.updateProfile(this.model).subscribe((data) => {
       console.log(this.model);
       alert("Profile has been updated....");
+      this.router.navigate(['/dashboard'])
 
     });
   }
