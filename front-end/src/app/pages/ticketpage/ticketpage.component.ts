@@ -20,41 +20,23 @@ export class TicketpageComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    //   this.data$ = this.route.paramMap.pipe(
-    //     switchMap((params: ParamMap) =>
-    //       this.ticket.getTicketById(params.get('id')))
-    //   );
-    //   console.log('Received data: ' + JSON.stringify(this.data$));
-    // }
     const id = this.route.snapshot.paramMap.get('id');
     this.ticket.getTicketById(id).subscribe(data => {
       this.ticket$ = data;
       console.log('Ticket Detail: ' + JSON.stringify(data));
       console.log('Comments Detail: ' + JSON.stringify(data.comments));
-      // this.router.nav
     });
-    //   this.data$ = this.ticket.getTicketById(id);
-    //   console.log('Data: ' + JSON.stringify(this.data$));
   }
 
   postComment() {
     this.comment.ticketId = this.ticket$.id;
     this.comment.userId = localStorage.getItem('userId');
-    if (this.ticket$.comments === undefined) {
-      console.log('true : not defined');
-      this.ticket$.comments.setItem('comment', this.comment);
-    } else {
-      console.log('true : defined');
-    }
-    // this.ticket.postCommentService(this.comment).subscribe(data => {
-    //   if (this.comment !== undefined) {
-    //     this.data$.comments.push(data);
-    //   } else {
-    //     this.data$.comments = data;
-    //   }
-    //   this.comment.body = data.body;
-    //   console.log('Comments. ' + JSON.stringify(this.data$.comments));
-    //   this.comment.body = '';
-    // });
+      this.ticket.postCommentService(this.comment).subscribe(data => {
+          this.comment.body = data.body;
+          this.ticket.getTicketById(this.ticket$.id).subscribe(data => {
+            this.ticket$ = data;})
+          this.comment.body = '';
+        });
   }
+  
 }
