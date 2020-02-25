@@ -1,22 +1,25 @@
 <div class="d-flex" id="wrapper">
 
-    <!-- Sidebar -->
-    <div *ngIf="checkLogin()" class="bg-light border-right bg-sidebar-color" id="sidebar-wrapper">
-        <div class="sidebar-heading"> Bluemine {{checkLogin()}}</div>
-        <div class="list-group list-group-flush bg-sidebar-color">
-            <a [routerLink]="['dashboard']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Dashboard</a>
-            <a [routerLink]="['newticket']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Create Ticket</a>
-            <a (click)="ticketType('New');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">New Tickets</a>
-            <a (click)="ticketType('InProcess');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">In Process Tickets</a>
-            <a (click)="ticketType('Testing');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Testing Tickets</a>
-            <a (click)="ticketType('Completed');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Completed Tickets</a>
-            <a (click)="ticketType('Cancelled');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Cancelled Tickets</a>
-            <a (click)="ticketType('ABM');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned By Me</a>
-            <a (click)="ticketType('ATM');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned To Me</a>
-            <a [routerLink]="['profile']" routerLinkActive="router-link-active" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
-            <!-- <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Status</a> -->
-        </div>
-        <!-- /#sidebar-wrapper -->
+  <!-- Sidebar -->
+  <div *ngIf= "checkLogin()" class="bg-light border-right bg-sidebar-color" id="sidebar-wrapper">
+    <div class="sidebar-heading"> Bluemine {{checkLogin()}}</div>
+    <div class="list-group list-group-flush bg-sidebar-color">
+      <a [routerLink]="['dashboard']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action bg-light bg-sidebar-color">Dashboard</a>
+      <a [routerLink]="['newticket']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action bg-light bg-sidebar-color">Create Ticket</a>
+      <a (click)="ticketType('New');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">New Tickets</a>
+      <a (click)="ticketType('InProcess');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">In Process Tickets</a>
+      <a (click)="ticketType('Testing');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Testing Tickets</a>
+      <a (click)="ticketType('Completed');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Completed Tickets</a>
+      <a (click)="ticketType('Cancelled');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Cancelled Tickets</a>
+      <a (click)="ticketType('ABM');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned By Me</a>
+      <a (click)="ticketType('ATM');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned To Me</a>
+      <a [routerLink]="['profile']" routerLinkActive="router-link-active"
+        class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
+    </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
@@ -33,16 +36,17 @@
                         <li class="nav-item active">
                             <a class="nav-link bg-nav-opt-color" [routerLink]="['home']" routerLinkActive="router-link-active">Home <span
                 class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bg-nav-opt-color" href="#">Alerts</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link bg-nav-opt-color" [routerLink]="['/home']" routerLinkActive="router-link-active" (click)="logout()">Logout</a>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link bg-nav-opt-color" href="#">Alerts</a>
+          </li> -->
+          <li class="nav-item">
+            <a class="nav-link bg-nav-opt-color" [routerLink]="['/home']" routerLinkActive="router-link-active"
+                (click)="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
 
             <div class="container-fluid">
                 <router-outlet></router-outlet>
