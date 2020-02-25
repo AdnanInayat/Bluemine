@@ -54,6 +54,7 @@ export class ProfileComponent implements OnInit {
     console.log(this.model);
     this.userService.updateProfile(this.model).subscribe((data) => {
       console.log(this.model);
+      alert("Profile has been updated....");
 
     });
   }
