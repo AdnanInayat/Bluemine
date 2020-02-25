@@ -17,7 +17,6 @@
       <a (click)="ticketType('ATM');" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Assigned To Me</a>
       <a [routerLink]="['profile']" routerLinkActive="router-link-active"
         class="list-group-item list-group-item-action bg-light bg-sidebar-color">Profile</a>
-      <!-- <a href="#" class="list-group-item list-group-item-action bg-light bg-sidebar-color">Status</a> -->
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -39,9 +38,9 @@
             <a class="nav-link bg-nav-opt-color" [routerLink]="['home']" routerLinkActive="router-link-active">Home <span
                 class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link bg-nav-opt-color" href="#">Alerts</a>
-          </li>
+          </li> -->
           <li class="nav-item">
             <a class="nav-link bg-nav-opt-color" [routerLink]="['/home']" routerLinkActive="router-link-active"
                 (click)="logout()">Logout</a>
