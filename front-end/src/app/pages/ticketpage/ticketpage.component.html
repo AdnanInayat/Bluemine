@@ -1,50 +1,40 @@
 <div class="card cardMain">
     <div class="progress" style="height: 3px">
         <!-- New -->
-        <div *ngIf="ticket$.status=='New' || ticket$.status=='Processing' || ticket$.status=='Completed'"
-        class="progress-bar bg-info" role="progressbar"  
-        style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+        <div *ngIf="ticket$.status=='New' || ticket$.status=='Processing' || ticket$.status=='Completed'" class="progress-bar bg-info" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
         <!-- Designing -->
-        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'"
-        class="progress-bar  bg-primary" role="progressbar" 
-        style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'" class="progress-bar  bg-primary" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
         <!-- Development -->
-        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'"
-        class="progress-bar bg-warning" role="progressbar"  
-        style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'" class="progress-bar bg-warning" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
         <!-- Testing -->
-        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'"
-        class="progress-bar bg-danger" role="progressbar"  
-        style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
+        <div *ngIf="ticket$.status=='Processing' || ticket$.status=='Completed'" class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100"></div>
         <!-- Deployment -->
-        <div *ngIf="ticket$.status=='Completed'"
-        class="progress-bar bg-success" role="progressbar"  
-        style="width: 15%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-  <div class="card-body">
-    <div class="card-body row">
-      <div class="col-lg-1 ">
-        <Button class="btn btn-user-profile">A</Button>
-      </div>
-      <div class="col-lg-10 text-middle">
-        <b class="text-primary">Ticket Title: {{ticket$.title}}</b>
-      </div>
+        <div *ngIf="ticket$.status=='Completed'" class="progress-bar bg-success" role="progressbar" style="width: 15%" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100"></div>
     </div>
-  </div>
-
-  <div class="card cardDes">
     <div class="card-body">
-      <b class="text-secondary">Description:</b>
-      <p>{{ticket$.description}}</p>
-      <!-- <p>Currently, the product list displays the name and description of each product. The product list component also
+        <div class="card-body row">
+            <div class="col-lg-1 ">
+                <Button class="btn btn-user-profile">A</Button>
+            </div>
+            <div class="col-lg-10 text-middle">
+                <b class="text-primary">Ticket Title: {{ticket$.title}}</b>
+            </div>
+        </div>
+    </div>
+
+    <div class="card cardDes">
+        <div class="card-body">
+            <b class="text-secondary">Description:</b>
+            <p>{{ticket$.description}}</p>
+            <!-- <p>Currently, the product list displays the name and description of each product. The product list component also
         defines a products property that contains imported data for each product from the products array in products.ts.
 
         The next step is to create a new alert feature that takes a product as an input. The alert checks the product's
         price, and, if the price is greater than $700, displays a "Notify Me" button that lets users sign up for
         notifications when the product goes on sale.</p> -->
-    </div>
+        </div>
 
-    <!-- <div class="card-body">
+        <!-- <div class="card-body">
       <b>variations:</b>
       <p class="cardDet">The next step is to create a new alert feature that takes a product as an input. The alert
         checks
@@ -53,7 +43,7 @@
         notifications when the product goes on sale.</p>
     </div> -->
 
-    <!-- <div class="card-body">
+        <!-- <div class="card-body">
       <b>Targeting:</b>
       <p class="cardDet">Currently, the product list displays the name and description of each product. The product list
         component also
@@ -66,22 +56,22 @@
       <p class="cardDet">Desktop Developer</p>
     </div> -->
 
-  </div>
-
-  <div class="com">
-    <div class="comHeading text-info font-weight-bold">Comments</div>
-
-    <div class="card-body row cardCom" *ngFor="let comment of ticket$.comments">
-      <div class="col-lg-1">
-        <Button class="btn btn-user-profile">{{comment.userId}}</Button>
-      </div>
-      <div class="col-lg-10">
-        <p>{{comment.body}}</p>
-        <!-- <p>Currently, the product list displays the name and description of each product.</p> -->
-      </div>
     </div>
 
-    <!-- <div class="card-body row cardCom">
+    <div class="com">
+        <div class="comHeading text-info font-weight-bold">Comments</div>
+
+        <div class="card-body row cardCom" *ngFor="let comment of ticket$.comments">
+            <div class="col-lg-1">
+                <Button class="btn btn-user-profile">{{comment.userId}}</Button>
+            </div>
+            <div class="col-lg-10">
+                <p>{{comment.body}}</p>
+                <!-- <p>Currently, the product list displays the name and description of each product.</p> -->
+            </div>
+        </div>
+
+        <!-- <div class="card-body row cardCom">
       <div class="col-lg-1">
         <Button class="btn btn-user-profile">A</Button>
       </div>
@@ -90,17 +80,17 @@
       </div>
     </div> -->
 
-    <form (ngSubmit)="postComment()">
-      <div class="form-group" id="write-com">
-        <div class="input-group" id="txt-btn">
-          <textarea class="form-control" aria-label="With textarea" name="body" [(ngModel)]="comment.body" rows="3"></textarea>
-          <div class="input-group-append">
-            <button class="btn btn-primary" id="txt-btn">P<br>u<br>b<br>l<br>i<br>s<br>h</button>
-          </div>
-        </div>
-      </div>
-    </form>
+        <form (ngSubmit)="postComment()">
+            <div class="form-group" id="write-com">
+                <div class="input-group" id="txt-btn">
+                    <textarea class="form-control" aria-label="With textarea" name="body" [(ngModel)]="comment.body" rows="3"></textarea>
+                    <div class="input-group-append">
+                        <button class="btn btn-primary" id="txt-btn">Publish</button>
+                    </div>
+                </div>
+            </div>
+        </form>
 
-  </div>
+    </div>
 
 </div>
