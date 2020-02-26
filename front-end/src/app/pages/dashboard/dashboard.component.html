@@ -1,40 +1,46 @@
+<br>
 <div class="container-fluid">
-  <div class="row">
-    <div class="col">
-      <h2>New</h2>
-      <div cdkDropList #newList="cdkDropList" [cdkDropListData]="_New" [cdkDropListConnectedTo]="[inProcessList,testingList,completeList,cancelList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of _New" cdkDrag><a class="action-link" 
-          href="/ticket/{{item.id}}">{{item.title}}</a></div>
-      </div>
+    <div class="row">
+        <div class="col">
+            <h2 class="text-info">New</h2>
+            <div cdkDropList #newList="cdkDropList" [cdkDropListData]="_New" [cdkDropListConnectedTo]="[inProcessList,testingList,completeList,cancelList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of _New" cdkDrag>
+                    <h6><a class="action-link" href="/ticket/{{item.id}}">{{item.title}}</a></h6>
+                    <!-- <p>Created on {{item.created_at | date : "dd.MM.y"}}</p> -->
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2 class="text-warning">In Process</h2>
+            <div cdkDropList #inProcessList="cdkDropList" [cdkDropListData]="_InProcess" [cdkDropListConnectedTo]="[newList,testingList,completeList,cancelList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of _InProcess" cdkDrag>
+                    <h6><a href="/ticket/{{item.id}}">{{item.title}}</a></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2 class="text-secondary">Testing</h2>
+            <div cdkDropList #testingList="cdkDropList" [cdkDropListData]="_Testing" [cdkDropListConnectedTo]="[inProcessList,newList,completeList,cancelList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of _Testing" cdkDrag>
+                    <h6><a href="/ticket/{{item.id}}">{{item.title}}</a></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2 class="text-success">Completed</h2>
+            <div cdkDropList #completeList="cdkDropList" [cdkDropListData]="_Complete" [cdkDropListConnectedTo]="[inProcessList,testingList,newList,cancelList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of _Complete" cdkDrag>
+                    <h6><a href="/ticket/{{item.id}}">{{item.title}}</a></h6>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <h2 class="text-danger">Cancelled</h2>
+            <div cdkDropList #cancelList="cdkDropList" [cdkDropListData]="_Cancel" [cdkDropListConnectedTo]="[inProcessList,testingList,completeList,newList]" class="example-list" (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of _Cancel" cdkDrag>
+                    <h6><a href="/ticket/{{item.id}}">{{item.title}}</a></h6>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="col">
-      <h2>In Process</h2>
-      <div cdkDropList #inProcessList="cdkDropList" [cdkDropListData]="_InProcess" [cdkDropListConnectedTo]="[newList,testingList,completeList,cancelList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of _InProcess" cdkDrag><a href="/ticket/{{item.id}}">{{item.title}}</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <h2>Testing</h2>
-      <div cdkDropList #testingList="cdkDropList" [cdkDropListData]="_Testing" [cdkDropListConnectedTo]="[inProcessList,newList,completeList,cancelList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of _Testing" cdkDrag><a href="/ticket/{{item.id}}">{{item.title}}</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <h2>Complete</h2>
-      <div cdkDropList #completeList="cdkDropList" [cdkDropListData]="_Complete" [cdkDropListConnectedTo]="[inProcessList,testingList,newList,cancelList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of _Complete" cdkDrag><a href="/ticket/{{item.id}}">{{item.title}}</a></div>
-      </div>
-    </div>
-    <div class="col">
-      <h2>Cancel</h2>
-      <div cdkDropList #cancelList="cdkDropList" [cdkDropListData]="_Cancel" [cdkDropListConnectedTo]="[inProcessList,testingList,completeList,newList]"
-        class="example-list" (cdkDropListDropped)="drop($event)">
-        <div class="example-box" *ngFor="let item of _Cancel" cdkDrag><a href="/ticket/{{item.id}}">{{item.title}}</a></div>
-      </div>
-    </div>
-  </div>
 </div>
