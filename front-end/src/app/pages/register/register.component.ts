@@ -16,6 +16,7 @@ export class RegisterComponent implements OnInit {
   // user: any = { deleted: 0, active: 1, isAdmin: 0, created_at: this.datee, updated_at: this.datee};
   user: any = {};
   isLoginError: boolean = false;
+  errMsg: any = "";
 
   constructor(private registerUserService: RegisterUserService, private router: Router) { }
 
@@ -32,6 +33,9 @@ export class RegisterComponent implements OnInit {
     },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
+        if (err.status==409){
+          this.errMsg="* User Name or email already exist.."
+        }
       }
     );
   }

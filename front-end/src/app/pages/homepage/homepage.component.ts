@@ -16,6 +16,7 @@ export class HomepageComponent implements OnInit {
   isLoginError = false;
   isLogged: boolean;
   errors:any = {};
+  errMsg:any = "";
   
   constructor(
     private homepageservice: HomepageService,
@@ -75,6 +76,13 @@ export class HomepageComponent implements OnInit {
     },
       (err: HttpErrorResponse) => {
         this.isLoginError = true;
+        if(err.status==422){
+        this.errMsg='* Incorrect User Name or Password';
+        // console.log(this.errMsg);
+        }else {
+          this.errMsg='* Incorrect User Name or Password'
+          // console.log(this.errMsg);
+        }
       }
     );
   }
