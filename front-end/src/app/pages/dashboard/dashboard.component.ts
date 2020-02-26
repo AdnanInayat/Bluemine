@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TicketService } from 'src/app/services/ticket.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-import { reverse } from 'dns';
+// import { reverse } from 'dns';
 
 @Component({
   selector: 'app-dashboard',
