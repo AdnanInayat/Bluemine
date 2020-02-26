@@ -33,7 +33,7 @@
         <div class="col">
             <h2 class="text-info">New</h2>
             <div cdkDropList #newList="cdkDropList" [cdkDropListData]="_New" [cdkDropListConnectedTo]="[inProcessList,testingList,completeList,cancelList]" class="example-list" (cdkDropListDropped)="drop($event)">
-                <div class="example-box" *ngFor="let item of _New.reverse()" cdkDrag>
+                <div class="example-box" *ngFor="let item of _New" cdkDrag>
                     <h6><a class="action-link" href="/ticket/{{item.id}}">{{item.title}}</a></h6>
                     <!-- <p>Created on {{item.created_at | date : "dd.MM.y"}}</p> -->
                 </div>
