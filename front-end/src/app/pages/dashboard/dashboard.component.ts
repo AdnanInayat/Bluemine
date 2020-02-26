@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { NewticketService } from 'src/app/services/newticket.service';
+import { TicketService } from 'src/app/services/ticket.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
+import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-dashboard',
@@ -17,10 +17,15 @@ export class DashboardComponent implements OnInit {
   public pieChartType: string = 'pie';
   public pieChartOptions = [{ backgroundColor: ['#17A2B8', '#FFC107', '#6C757D', '#28A745', '#DC3545'] }];
 
+  private _New: Array<any>;
+  private _InProcess: Array<any>;
+  private _Testing: Array<any>;
+  private _Complete: Array<any>;
+  private _Cancel: Array<any>;
 
   tickets: any = [];
 
-  constructor(private ticketServie: NewticketService,
+  constructor(private ticketServie: TicketService,
     private route: ActivatedRoute, private router: Router) {
     router.events.subscribe((val: any) => {
       if (typeof (val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0) {
@@ -29,6 +34,7 @@ export class DashboardComponent implements OnInit {
         this.getData();
       }
     });
+    this.getUserTickets();
   }
   private type: string = "";
   ngOnInit() {
@@ -39,7 +45,6 @@ export class DashboardComponent implements OnInit {
     this.type = type;
   }
   getData() {
-    console.log('type::::::::::::::::::::' + this.type);
     if (this.type === "New")
       this.getNewTicket();
     else if (this.type === "InProcess")
@@ -52,28 +57,26 @@ export class DashboardComponent implements OnInit {
       this.getCancelledTicket();
     else {
       this.getAllTickets();
-      this.getTicketsCount();
     }
+  }
+  test(id) {
+    this.router.navigate(['ticket/' + id]);
   }
 
   getAllTickets() {
     this.ticketServie.getTickets().subscribe(data => {
       this.tickets = data;
-      console.log('related comments : ' + this.tickets.comments);
-      console.log('Ticket Detail: ' + JSON.stringify(data));
     });
   }
   getCompleteTicket() {
     this.ticketServie.getCompleteTicket().subscribe(data => {
       this.tickets = data;
-      console.log('Comppleting Tickets ' + JSON.stringify(data));
     });
   }
 
   getCancelledTicket() {
     this.ticketServie.getCancelledTicket().subscribe(data => {
       this.tickets = data;
-      console.log('Cancelled Tickets ' + JSON.stringify(data));
     });
   }
 
@@ -81,7 +84,6 @@ export class DashboardComponent implements OnInit {
   getProcessingTicket() {
     this.ticketServie.getInProcessTicket().subscribe(data => {
       this.tickets = data;
-      console.log('Processing Ticket  ' + JSON.stringify(data));
     });
   }
 
@@ -89,40 +91,47 @@ export class DashboardComponent implements OnInit {
   getNewTicket() {
     this.ticketServie.getNewTicket().subscribe(data => {
       this.tickets = data;
-      console.log('New Tickets' + JSON.stringify(data));
     });
   }
 
   getABMTicket(id) {
     this.ticketServie.getABMTicket(id).subscribe(data => {
       this.tickets = data;
-      console.log('Processing Ticket  ' + JSON.stringify(data));
     });
   }
 
   getATMTicket(id) {
     this.ticketServie.getATMTicket(id).subscribe(data => {
       this.tickets = data;
-      console.log('Processing Ticket  ' + JSON.stringify(data));
     });
   }
   getTestingTicket() {
     this.ticketServie.getTestingTicket().subscribe(data => {
       this.tickets = data;
-      console.log('Testing Tickets ' + JSON.stringify(data));
     });
   }
-
-
-  test(id) {
-    this.router.navigate(['ticket/' + id]);
-    console.log(id);
-  }
-
-  getTicketsCount() {
-    this.ticketServie.getTicketsCountService().subscribe(total => {
-      console.log('Total tickets are : ' + JSON.stringify(total));
-    });
+  getUserTickets() {
+    let _userId = localStorage.getItem("userId");
+    if (typeof _userId !== 'undefined') {
+      let uid = parseInt(_userId);
+      this.ticketServie.getUserTickets(uid).subscribe(tickets => {
+        this._New = tickets.filter((elem) => {
+          return (elem.status == "New");
+        });
+        this._Testing = tickets.filter((elem) => {
+          return (elem.status == "Testing");
+        });
+        this._InProcess = tickets.filter((elem) => {
+          return (elem.status == "InProcess");
+        });
+        this._Complete = tickets.filter((elem) => {
+          return (elem.status == "Completed");
+        });
+        this._Cancel = tickets.filter((elem) => {
+          return (elem.status == "Cancelled");
+        });
+      });
+    }
   }
 
   // events on slice click
@@ -134,51 +143,44 @@ export class DashboardComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
-
-  _New = [
-    'Get to work',
-    'Pick up groceries',
-    'Go home',
-    'Fall asleep'
-  ];
-
-  _InProcess = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-  _Testing = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-  _Complete = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-  _Cancel = [
-    'Get up',
-    'Brush teeth',
-    'Take a shower',
-    'Check e-mail',
-    'Walk dog'
-  ];
-
+  public updateStatuses(){
+    for(let item of this._New){
+      item.status = "New";
+      this.ticketServie.updateTicket(item).subscribe(data => {
+        this.getUserTickets();
+      });
+    }
+    for(let item of this._Testing){
+      item.status = "Testing";
+      this.ticketServie.updateTicket(item).subscribe(data => {
+        this.getUserTickets();
+      });;
+    }
+    for(let item of this._InProcess){
+      item.status = "InProcess";
+      this.ticketServie.updateTicket(item).subscribe(data => {
+        this.getUserTickets();
+      });;
+    }
+    for(let item of this._Complete){
+      item.status = "Completed";
+      this.ticketServie.updateTicket(item).subscribe(data => {
+        this.getUserTickets();
+      });;
+    }
+    for(let item of this._Cancel){
+      item.status = "Cancelled";
+      this.ticketServie.updateTicket(item).subscribe(data => {
+        this.getUserTickets();
+      });;
+    }
+  }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
     } else {
-      transferArrayItem(event.previousContainer.data,
-        event.container.data,
-        event.previousIndex,
-        event.currentIndex);
+      transferArrayItem(event.previousContainer.data, event.container.data, event.previousIndex, event.currentIndex);
+      this.updateStatuses();
     }
   }
 

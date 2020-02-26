@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
-import { NewticketService } from 'src/app/services/newticket.service';
+import { TicketService } from 'src/app/services/ticket.service';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 
 @Component({
@@ -16,7 +15,7 @@ export class TicketpageComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private ticket: NewticketService
+    private ticket: TicketService
   ) { }
 
   ngOnInit() {

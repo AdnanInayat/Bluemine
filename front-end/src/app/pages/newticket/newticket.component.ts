@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NewticketService } from 'src/app/services/newticket.service';
+import { TicketService } from 'src/app/services/ticket.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RegisterUserService } from 'src/app/services/register-user.service';
@@ -18,7 +18,7 @@ export class NewticketComponent implements OnInit {
 
   test: string = "helloo";
 
-  constructor(private newticketService: NewticketService, private getUserService: RegisterUserService, private router: Router, private formBuilder: FormBuilder) {
+  constructor(private newticketService: TicketService, private getUserService: RegisterUserService, private router: Router, private formBuilder: FormBuilder) {
     this.test += " world";
    }
 

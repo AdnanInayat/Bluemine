@@ -5,7 +5,7 @@ import { AuthmainService } from './authmain.service';
 @Injectable({
   providedIn: 'root'
 })
-export class NewticketService extends AuthmainService {
+export class TicketService extends AuthmainService {
 
   constructor(private http: HttpClient) {
 
@@ -26,11 +26,11 @@ export class NewticketService extends AuthmainService {
   }
 
   getABMTicket(id: any) {
-    return this.http.get<any>(this.url + 'ticket/' + 'ticket?filter[where][assignedByUserId]='+ id , { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/' + 'ticket?filter[where][assignedByUserId]=' + id, { headers: this.header });
   }
 
   getATMTicket(id: any) {
-    return this.http.get<any>(this.url + 'ticket/' + + 'ticket?filter[where][assignedToUserId]='+ id , { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/' + + 'ticket?filter[where][assignedToUserId]=' + id, { headers: this.header });
   }
 
   postCommentService(comment: any) {
@@ -45,35 +45,35 @@ export class NewticketService extends AuthmainService {
     return this.http.get<any>(this.url + 'ticket/', { headers: this.header });
   }
 
-  getCompleteTicket(){
-      return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Completed', { headers: this.header});
+  getCompleteTicket() {
+    return this.http.get<any>(this.url + 'ticket?filter[where][status]=Completed', { headers: this.header });
 
   }
 
-  getCancelledTicket(){
-    return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Cancelled', { headers: this.header});
+  getCancelledTicket() {
+    return this.http.get<any>(this.url + 'ticket?filter[where][status]=Cancelled', { headers: this.header });
 
-}
-  getInProcessTicket(){
-     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=InProcess', { headers: this.header});
+  }
+  getInProcessTicket() {
+    return this.http.get<any>(this.url + 'ticket?filter[where][status]=InProcess', { headers: this.header });
 
-}
-   getNewTicket(){
-    return this.http.get<any>(this.url+ 'ticket?filter[where][status]=New', { headers: this.header});
+  }
+  getNewTicket() {
+    return this.http.get<any>(this.url + 'ticket?filter[where][status]=New', { headers: this.header });
 
-}
+  }
 
-    getTestingTicket(){
-     return this.http.get<any>(this.url+ 'ticket?filter[where][status]=Testing', { headers: this.header});
-
-}
-
-
- 
-
+  getTestingTicket() {
+    return this.http.get<any>(this.url + 'ticket?filter[where][status]=Testing', { headers: this.header });
+  }
   getTicketsCountService() {
     return this.http.get<any>(this.url + 'ticket/count', { headers: this.header });
   }
-
+  getUserTickets(id){
+    return this.http.get<any>(this.url + `ticket?filter[where][or][0][assignedByUserId]=${id}&filter[where][or][1][assignedToUserId]=${id}`, { headers: this.header });
+  }
+  updateTicket(data){
+    return this.http.put<any>(this.url + `ticket/${data.id}`, data, { headers: this.header });
+  }
 }
 
