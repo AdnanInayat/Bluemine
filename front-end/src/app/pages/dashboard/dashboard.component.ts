@@ -24,93 +24,28 @@ export class DashboardComponent implements OnInit {
   private _Complete: Array<any>;
   private _Cancel: Array<any>;
 
-  tickets: any = [];
-
   constructor(private ticketServie: TicketService,
     private route: ActivatedRoute, private router: Router) {
     router.events.subscribe((val: any) => {
       if (typeof (val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0) {
         var url = val.url.split('/')[2];
         this.type = url;
-        this.getData();
       }
     });
     this.getUserTickets();
   }
   private type: string = "";
   ngOnInit() {
-    this.type = this.route.snapshot.paramMap.get('type');
-    this.getData();
+    
   }
   setType(type) {
     this.type = type;
   }
-  getData() {
-    if (this.type === "New")
-      this.getNewTicket();
-    else if (this.type === "InProcess")
-      this.getProcessingTicket();
-    else if (this.type === "Testing")
-      this.getTestingTicket();
-    else if (this.type === "Completed")
-      this.getCompleteTicket();
-    else if (this.type === "Cancelled")
-      this.getCancelledTicket();
-    else {
-      this.getAllTickets();
-    }
-  }
+  
   test(id) {
     this.router.navigate(['ticket/' + id]);
   }
-
-  getAllTickets() {
-    this.ticketServie.getTickets().subscribe(data => {
-      this.tickets = data;
-    });
-  }
-  getCompleteTicket() {
-    this.ticketServie.getCompleteTicket().subscribe(data => {
-      this.tickets = data;
-    });
-  }
-
-  getCancelledTicket() {
-    this.ticketServie.getCancelledTicket().subscribe(data => {
-      this.tickets = data;
-    });
-  }
-
-
-  getProcessingTicket() {
-    this.ticketServie.getInProcessTicket().subscribe(data => {
-      this.tickets = data;
-    });
-  }
-
-
-  getNewTicket() {
-    this.ticketServie.getNewTicket().subscribe(data => {
-      this.tickets = data;
-    });
-  }
-
-  getABMTicket(id) {
-    this.ticketServie.getABMTicket(id).subscribe(data => {
-      this.tickets = data;
-    });
-  }
-
-  getATMTicket(id) {
-    this.ticketServie.getATMTicket(id).subscribe(data => {
-      this.tickets = data;
-    });
-  }
-  getTestingTicket() {
-    this.ticketServie.getTestingTicket().subscribe(data => {
-      this.tickets = data;
-    });
-  }
+  
   getUserTickets() {
     let _userId = localStorage.getItem("userId");
     if (typeof _userId !== 'undefined') {

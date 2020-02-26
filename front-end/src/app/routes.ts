@@ -4,6 +4,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { HomepageComponent } from './pages/homepage/homepage.component';
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 import { NewticketComponent } from './pages/newticket/newticket.component';
+import { ListticketsComponent } from './pages/listtickets/listtickets.component';
 import { AppComponent } from './app.component';
 import { ModuleWithProviders } from '@angular/core';
 import { ProfileComponent } from './pages/profile/profile.component';
@@ -13,9 +14,11 @@ export const appRoutes: Routes = [
     { path : 'dashboard', component : DashboardComponent },
     { path : 'dashboard/:type', component : DashboardComponent },
     { path : 'home', component : HomepageComponent },
+    { path : 'tickets/:type', component : ListticketsComponent },
     { path : 'ticket/:id', component : TicketpageComponent },
     { path : 'newticket', component : NewticketComponent },
-    { path: 'profile', component: ProfileComponent },
+    { path : 'profile', component: ProfileComponent },
+    { path : '**', redirectTo : '/home'},
     { path : '', redirectTo : '/home', pathMatch : 'full' }
 ];
 

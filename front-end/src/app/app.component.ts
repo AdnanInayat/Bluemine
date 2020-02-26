@@ -38,7 +38,7 @@ export class AppComponent {
   }
 
   ticketType(tType) {
-    this.router.navigate(['dashboard/'+tType]);
+    this.router.navigate(['tickets/'+tType]);
     this.ttype = this.ttype;
   }
 
