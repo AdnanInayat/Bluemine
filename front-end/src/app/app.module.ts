@@ -16,6 +16,7 @@ import { NewticketComponent } from './pages/newticket/newticket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
 import { ChartsModule, Color } from 'ng2-charts';
 import {DragDropModule} from '@angular/cdk/drag-drop';
+import { ListticketsComponent } from './pages/listtickets/listtickets.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import {DragDropModule} from '@angular/cdk/drag-drop';
     DashboardComponent,
     TicketpageComponent,
     NewticketComponent,
-    ProfileComponent    
+    ProfileComponent,
+    ListticketsComponent    
   ],
   imports: [
     BrowserModule,

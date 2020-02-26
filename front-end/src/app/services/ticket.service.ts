@@ -26,11 +26,11 @@ export class TicketService extends AuthmainService {
   }
 
   getABMTicket(id: any) {
-    return this.http.get<any>(this.url + 'ticket/' + 'ticket?filter[where][assignedByUserId]=' + id, { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/?filter[where][assignedByUserId]=' + id, { headers: this.header });
   }
 
   getATMTicket(id: any) {
-    return this.http.get<any>(this.url + 'ticket/' + + 'ticket?filter[where][assignedToUserId]=' + id, { headers: this.header });
+    return this.http.get<any>(this.url + 'ticket/?filter[where][assignedToUserId]=' + id, { headers: this.header });
   }
 
   postCommentService(comment: any) {
