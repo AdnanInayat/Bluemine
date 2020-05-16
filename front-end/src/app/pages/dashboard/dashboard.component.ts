@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { TicketService } from 'src/app/services/ticket.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/drag-drop';
-// import { reverse } from 'dns';
 
 @Component({
   selector: 'app-dashboard',
@@ -11,12 +10,32 @@ import { CdkDragDrop, moveItemInArray, transferArrayItem } from '@angular/cdk/dr
 })
 export class DashboardComponent implements OnInit {
 
-  title = 'App';
+  pieTitle = 'Tickets Overview';
   // public pieChartLabels: string[] = ['Pending', 'InProgress', 'OnHold', 'Completed', 'Cancelled'];
   public pieChartLabels: string[] = ['New', 'InProgress', 'Testing', 'Completed', 'Cancelled'];
-  public pieChartData: number[] = [21, 39, 10, 14, 16];
+  // public pieChartData: number[] = [21, 39, 10, 14, 16];
+  public pieChartData: number[] = [];
   public pieChartType: string = 'pie';
   public pieChartOptions = [{ backgroundColor: ['#17A2B8', '#FFC107', '#6C757D', '#28A745', '#DC3545'] }];
+
+  lineTitle = 'Current Year Performance';
+  lineChartLabels = ['January', 'February', 'March', 'April', 'May', 'June'];
+  lineChartData = [
+    { data: [33, 60, 26, 20], label: 'New' },
+    { data: [12, 45, 10, 34], label: 'InProcess' },
+    { data: [45, 57, 20, 50], label: 'Testing' },
+    { data: [5, 17, 50, 40], label: 'Completed' },
+    { data: [5, 7, 2, 3], label: 'Cancelled' }
+  ];
+  public lineChartColors = [
+    { borderColor: '#17A2B8', borderWidth: '2.0', backgroundColor: 'rgba(0,0,0,0.1)', },
+    { borderColor: '#FFC107', borderWidth: '1.4', backgroundColor: 'rgba(0,0,0,0.03)', },
+    { borderColor: '#6C757D', borderWidth: '1.6', backgroundColor: 'rgba(0,0,0,0.05)', },
+    { borderColor: '#28A745', borderWidth: '1.8', backgroundColor: 'rgba(0,0,0,0.07)', },
+    { borderColor: '#DC3545', borderWidth: '1.2', backgroundColor: 'rgba(0,0,0,0.09)', },
+  ];
+  public lineChartType: string = 'line';
+  public lineChartOptions = [{responsive: true }];
 
   private _New: Array<any>;
   private _InProcess: Array<any>;
@@ -26,20 +45,11 @@ export class DashboardComponent implements OnInit {
 
   constructor(private ticketServie: TicketService,
     private route: ActivatedRoute, private router: Router) {
-    router.events.subscribe((val: any) => {
-      if (typeof (val.url) !== 'undefined' && val.url.indexOf("dashboard") > 0) {
-        var url = val.url.split('/')[2];
-        this.type = url;
-      }
-    });
     this.getUserTickets();
   }
-  private type: string = "";
+  
   ngOnInit() {
-    
-  }
-  setType(type) {
-    this.type = type;
+    this.getTicketsCount();
   }
   
   test(id) {
@@ -79,6 +89,16 @@ export class DashboardComponent implements OnInit {
   public chartHovered(e: any): void {
     console.log(e);
   }
+
+  getTicketsCount(){
+    this.pieChartData=[];
+    this.ticketServie.getTCByStatus('New').subscribe(res => {this.pieChartData.push(res.count);});
+    this.ticketServie.getTCByStatus('InProcess').subscribe(res => {this.pieChartData.push(res.count);});
+    this.ticketServie.getTCByStatus('Testing').subscribe(res => {this.pieChartData.push(res.count);});
+    this.ticketServie.getTCByStatus('Completed').subscribe(res => {this.pieChartData.push(res.count);});
+    this.ticketServie.getTCByStatus('Cancelled').subscribe(res => {this.pieChartData.push(res.count);});
+  }
+  
   public updateStatuses(){
     for(let item of this._New){
       item.status = "New";
@@ -110,6 +130,7 @@ export class DashboardComponent implements OnInit {
         this.getUserTickets();
       });;
     }
+    this.getTicketsCount();
   }
   drop(event: CdkDragDrop<string[]>) {
     if (event.previousContainer === event.container) {

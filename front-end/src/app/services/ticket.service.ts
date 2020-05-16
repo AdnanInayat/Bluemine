@@ -60,7 +60,14 @@ export class TicketService extends AuthmainService {
   }
   getNewTicket() {
     return this.http.get<any>(this.url + 'ticket?filter[where][status]=New', { headers: this.header });
+  }
 
+  getTCByStatusAndId(tStatus,userId) {
+    return this.http.get<any>(this.url + 'ticket/count?where[assignedToUserId]='+userId+'&where[status]='+tStatus, { headers: this.header });
+  }
+
+  getTCByStatus(tStatus) {
+    return this.http.get<any>(this.url + 'ticket/count?where[status]='+tStatus, { headers: this.header });
   }
 
   getTestingTicket() {
