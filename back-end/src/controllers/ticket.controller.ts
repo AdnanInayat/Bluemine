@@ -100,6 +100,10 @@ export class TicketController {
     return this.ticketRepository.find(filter);
   }
 
+
+  //get count of status based tickets group by month.
+
+  // SELECT Month(created_at), count(`created_at`) FROM `tticket` WHERE `status`='Testing' GROUP BY Month(created_at)
   // {include:[{relation:'comments'}]}
 
   @patch('/ticket', {

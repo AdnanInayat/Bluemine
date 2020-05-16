@@ -14,7 +14,7 @@ import { MatToolbarModule, MatInputModule, MatButtonModule, MatSidenavModule, Ma
 import { TicketpageComponent } from './pages/ticketpage/ticketpage.component';
 import { NewticketComponent } from './pages/newticket/newticket.component';
 import { ProfileComponent } from './pages/profile/profile.component';
-import { ChartsModule, Color } from 'ng2-charts';
+import { ChartsModule } from 'ng2-charts';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { ListticketsComponent } from './pages/listtickets/listtickets.component';
 

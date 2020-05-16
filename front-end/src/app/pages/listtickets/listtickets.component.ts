@@ -97,4 +97,7 @@ export class ListticketsComponent implements OnInit {
     });
   }
 
+  test(id) {
+    this.router.navigate(['ticket/' + id]);
+  }
 }
