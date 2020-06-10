@@ -34,5 +34,5 @@ npm i
 
 ## Run
 
-To start backend, go into backend directory and execute ``` npm start ``` <br>
-To start frontend, go into frontend directory and execute ``` ng serve ```
+* To start backend, go into backend directory and execute ``` npm start ``` <br>
+* To start frontend, go into frontend directory and execute ``` ng serve ```
