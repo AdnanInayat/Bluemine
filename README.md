@@ -36,3 +36,7 @@ npm i
 
 * To start backend, go into backend directory and execute ``` npm start ``` <br>
 * To start frontend, go into frontend directory and execute ``` ng serve ```
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
