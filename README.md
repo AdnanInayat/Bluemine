@@ -6,10 +6,17 @@ Ticket tracking system is used to assign task to the team member and keep an eye
 
 * Backend: Node.js, Loopback
 * Frontend: Angular, HTML, CSS, Bootstrap
+* Database: MySQL
 
 ## Requirements
 
-To Run this application: node and angular are required.
+To Run this application: MySQL, node.js and angular are required.
+
+## Migrating the database from model into MySQL
+```
+ng run build
+ng run migrate
+```
 
 ## Installation
 
