@@ -2,7 +2,7 @@
 This is a ticket tracking system.
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](https://github.com/Vaaceph/iris-flower-classification/blob/master/LICENSE.md)  </br></br>
-Ticket tracking system is used to assign task to the team member and keep an eye on task. Each task has 5 status like New, In Process, Testing, Completed, and Cancelled. You can eaisly change the status of the task by drag and drop.
+Ticket tracking system is used to assign task to the team member and keep an eye on task. Each task has 5 status like New, In Process, Testing, Completed, and Cancelled. You can easily change the status of the task by drag and drop.
 
 * Backend: Node.js, Loopback
 * Frontend: Angular, HTML, CSS, Bootstrap
