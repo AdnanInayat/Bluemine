@@ -64,7 +64,7 @@
     "dependencies": "0.0.1",
     "dist": "^0.1.2",
     "isemail": "^3.2.0",
-    "jsonwebtoken": "8.5.1",
+    "jsonwebtoken": "9.0.0",
     "lodash": "^4.17.15",
     "loopback-connector-mongodb": "^5.2.2",
     "loopback-connector-mysql": "^5.4.2",
